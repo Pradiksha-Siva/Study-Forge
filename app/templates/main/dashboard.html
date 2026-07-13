@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - StudyForge{% endblock %}
+
+{% block goal_stats %}
+<!-- Override daily goal stats in header to dynamically update via js -->
+<div class="stat-badge goal-badge" id="dailyGoalBadge">
+    <div class="badge-icon">🎯</div>
+    <div class="badge-text">
+        <span class="badge-val" id="dailyGoalText">{{ today_count }} / {{ current_user.daily_goal }}</span>
+        <span class="badge-label-sub">Daily Goal</span>
+    </div>
+    <button class="edit-goal-btn" onclick="openModal('goalModal')"><i class="fa-solid fa-pen-to-square"></i></button>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-grid">
+    <!-- Row 1: Motivational Quote & Fast Stats -->
+    <div class="dash-welcome-row">
+        <div class="quote-card glass-panel">
+            <span class="quote-icon">💡</span>
+            <div class="quote-content">
+                <p class="quote-text">"{{ quote }}"</p>
+                <span class="quote-author">Daily Motivation</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Row 2: Gamified Metrics & Pomodoro -->
+    <div class="main-metrics-row">
+        <!-- XP Circle Card -->
+        <div class="metric-card level-card glass-panel">
+            <h3>Level Progression</h3>
+            <div class="xp-progress-circle-container">
+                <svg class="xp-svg" viewBox="0 0 100 100">
+                    <circle class="xp-bg-circle" cx="50" cy="50" r="40"></circle>
+                    <circle class="xp-fill-circle" id="xpCircleFill" cx="50" cy="50" r="40" style="stroke-dashoffset: calc(251.2 - (251.2 * {{ current_user.xp_in_level }}) / 100);"></circle>
+                </svg>
+                <div class="xp-circle-text">
+                    <span class="circle-level">Lvl {{ current_user.level }}</span>
+                    <span class="circle-xp">{{ current_user.xp_in_level }}/100</span>
+                    <span class="circle-label">XP</span>
+                </div>
+            </div>
+            <div class="level-stats">
+                <p>Total XP: <strong>{{ current_user.xp }}</strong></p>
+                <p>Longest Streak: <strong>{{ current_user.longest_streak }} Days</strong></p>
+            </div>
+        </div>
+        
+        <!-- Pomodoro Card -->
+        <div class="metric-card pomodoro-card glass-panel">
+            <div class="pomodoro-header">
+                <h3>Pomodoro Focus</h3>
+                <span class="pomo-mode-badge" id="pomoModeBadge">Study Time</span>
+            </div>
+            
+            <div class="pomo-timer-display">
+                <div class="pomo-timer-circle">
+                    <svg class="timer-svg" viewBox="0 0 100 100">
+                        <circle class="timer-bg-circle" cx="50" cy="50" r="45"></circle>
+                        <circle class="timer-fill-circle" id="timerCircleFill" cx="50" cy="50" r="45" style="stroke-dashoffset: 0;"></circle>
+                    </svg>
+                    <div class="timer-text" id="pomoTimeDisplay">25:00</div>
+                </div>
+            </div>
+            
+            <div class="pomo-controls">
+                <button class="pomo-btn play-btn" id="btnPomoPlay" onclick="togglePomodoro()"><i class="fa-solid fa-play"></i></button>
+                <button class="pomo-btn reset-btn" onclick="resetPomodoro()"><i class="fa-solid fa-rotate-right"></i></button>
+            </div>
+        </div>
+        
+        <!-- Decks Summary Card -->
+        <div class="metric-card decks-summary-card glass-panel">
+            <h3>My Stats</h3>
+            <div class="stats-list">
+                <div class="stats-item">
+                    <span class="stats-item-icon">📚</span>
+                    <div class="stats-item-info">
+                        <h4>Total Cards</h4>
+                        <p>{{ total_cards }} Cards</p>
+                    </div>
+                </div>
+                <div class="stats-item">
+                    <span class="stats-item-icon">⏳</span>
+                    <div class="stats-item-info">
+                        <h4>Due for Review</h4>
+                        <p id="dueCardsCount">{{ due_cards_count }} Cards</p>
+                    </div>
+                </div>
+                <div class="stats-item">
+                    <span class="stats-item-icon">✅</span>
+                    <div class="stats-item-info">
+                        <h4>Total Reviews</h4>
+                        <p>{{ total_reviews }} Questions</p>
+                    </div>
+                </div>
+            </div>
+            <div class="summary-actions">
+                <a href="{{ url_for('study.session') }}" class="btn btn-primary btn-block">
+                    <span>Start Review Session</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Row 3: Streak Calendar & Chart -->
+    <div class="charts-calendar-row">
+        <!-- Contribution Graph (GitHub-style) -->
+        <div class="activity-card glass-panel">
+            <div class="activity-header">
+                <h3>Study Frequency</h3>
+                <span class="sub-label">Contributions (Past 6 Months)</span>
+            </div>
+            
+            <div class="calendar-wrapper">
+                <div class="calendar-grid" id="streakCalendarGrid">
+                    <!-- Loaded dynamically via js -->
+                </div>
+            </div>
+            
+            <div class="calendar-legend">
+                <span>Less</span>
+                <span class="legend-box level-0"></span>
+                <span class="legend-box level-1"></span>
+                <span class="legend-box level-2"></span>
+                <span class="legend-box level-3"></span>
+                <span>More</span>
+            </div>
+        </div>
+        
+        <!-- Weekly Analytics Bar Chart -->
+        <div class="analytics-card glass-panel">
+            <h3>Weekly Analytics</h3>
+            <div class="chart-container">
+                <canvas id="weeklyChart"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Row 4: Achievements Grid -->
+    <div class="achievements-section">
+        <h2 class="section-title">Achievements</h2>
+        <div class="achievements-grid">
+            {% for ach in all_achievements %}
+                {% set is_unlocked = ach.id in unlocked_ach_ids %}
+                <div class="achievement-badge glass-panel {% if not is_unlocked %}locked{% endif %}" title="{{ ach.description }}">
+                    <div class="ach-icon-container">
+                        <span class="ach-icon">{{ ach.badge_icon }}</span>
+                        {% if not is_unlocked %}
+                            <span class="ach-lock"><i class="fa-solid fa-lock"></i></span>
+                        {% endif %}
+                    </div>
+                    <div class="ach-info">
+                        <h4>{{ ach.name }}</h4>
+                        <p>{{ ach.description }}</p>
+                        {% if is_unlocked %}
+                            <span class="ach-status unlocked"><i class="fa-solid fa-circle-check"></i> Unlocked</span>
+                        {% else %}
+                            <span class="ach-status"><i class="fa-solid fa-hourglass-start"></i> Locked</span>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+<script src="{{ url_for('static', filename='js/timer.js') }}"></script>
+{% endblock %}

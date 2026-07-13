@@ -1,0 +1,354 @@
+{% extends "base.html" %}
+
+{% block title %}Decks & Questions - StudyForge{% endblock %}
+
+{% block content %}
+<div class="decks-header-bar">
+    <div class="header-main">
+        <h1>My Decks</h1>
+        <p>Organize, search, and manage your study materials.</p>
+    </div>
+    
+    <div class="header-actions">
+        <button class="btn btn-secondary" onclick="openModal('importModal')">
+            <i class="fa-solid fa-file-import"></i> Import Decks
+        </button>
+        <a href="{{ url_for('questions.export_questions') }}" class="btn btn-secondary">
+            <i class="fa-solid fa-file-export"></i> Export Decks
+        </a>
+        <button class="btn btn-primary" onclick="openModal('addSubjectModal')">
+            <i class="fa-solid fa-plus"></i> Add Subject
+        </button>
+    </div>
+</div>
+
+<div class="decks-search-bar glass-panel">
+    <form action="{{ url_for('questions.index') }}" method="GET" class="search-form">
+        <div class="search-input-group">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" name="search" placeholder="Search questions, answers, topics, or subjects..." value="{{ search_query }}">
+            {% if search_query %}
+                <a href="{{ url_for('questions.index') }}" class="clear-search-btn">&times;</a>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+
+{% if search_query %}
+    <!-- Search Results View -->
+    <div class="search-results-section">
+        <h2>Search Results for "{{ search_query }}"</h2>
+        {% if filtered_questions %}
+            <div class="questions-list">
+                {% for q in filtered_questions %}
+                    <div class="question-card glass-panel">
+                        <div class="q-card-header">
+                            <span class="badge badge-subject">{{ q.topic.subject.name }}</span>
+                            <span class="badge badge-topic">{{ q.topic.name }}</span>
+                            <div class="q-actions">
+                                <button class="action-btn edit-btn" onclick="openEditModal('{{ q.id }}', '{{ q.question_text|escapejs if q.question_text else "" }}', '{{ q.answer_text|escapejs if q.answer_text else "" }}', '{{ q.topic.id }}', '{{ q.topic.subject.id }}')" title="Edit Question">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+                                <a href="{{ url_for('questions.delete_question', id=q.id) }}" class="action-btn delete-btn" onclick="return confirm('Are you sure you want to delete this question?')" title="Delete Question">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="q-card-body">
+                            <div class="q-text">
+                                <strong>Question:</strong>
+                                <p>{{ q.question_text }}</p>
+                            </div>
+                            <div class="a-text">
+                                <strong>Answer:</strong>
+                                <p>{{ q.answer_text }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-state glass-panel">
+                <div class="empty-icon">🔍</div>
+                <p>No questions matched your search criteria. Try a different query!</p>
+            </div>
+        {% endif %}
+    </div>
+{% else %}
+    <!-- Folders Decks View -->
+    <div class="decks-grid">
+        {% if subjects %}
+            {% for subject in subjects %}
+                <div class="subject-panel glass-panel">
+                    <div class="subject-header">
+                        <div class="subject-title">
+                            <span class="folder-icon">📂</span>
+                            <h3>{{ subject.name }}</h3>
+                            <span class="counter-badge">{{ subject.topics.count() }} Topics</span>
+                        </div>
+                        <div class="panel-actions">
+                            <button class="action-btn add-btn" onclick="openAddTopicModal('{{ subject.id }}')" title="Add Topic to Subject">
+                                <i class="fa-solid fa-plus"></i> Topic
+                            </button>
+                            <a href="{{ url_for('questions.delete_subject', id=subject.id) }}" class="action-btn delete-btn" onclick="return confirm('Delete this Subject and all its contents? This action is permanent.')" title="Delete Subject">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="subject-body">
+                        {% if subject.topics.all() %}
+                            <div class="topics-accordion">
+                                {% for topic in subject.topics %}
+                                    <div class="topic-item">
+                                        <div class="topic-header" onclick="toggleTopicAccordion('topic-content-{{ topic.id }}')">
+                                            <div class="topic-title">
+                                                <i class="fa-solid fa-folder-open folder-sub-icon"></i>
+                                                <h4>{{ topic.name }}</h4>
+                                                <span class="q-counter">{{ topic.questions.count() }} Cards</span>
+                                            </div>
+                                            <div class="topic-actions" onclick="event.stopPropagation()">
+                                                <button class="action-btn add-btn-sub" onclick="openAddQuestionModal('{{ topic.id }}', '{{ subject.id }}')" title="Add Question">
+                                                    <i class="fa-solid fa-plus"></i> Card
+                                                </button>
+                                                <a href="{{ url_for('questions.delete_topic', id=topic.id) }}" class="action-btn delete-btn" onclick="return confirm('Delete this Topic and all its questions?')" title="Delete Topic">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        
+                                        <div id="topic-content-{{ topic.id }}" class="topic-content collapsed">
+                                            {% if topic.questions.all() %}
+                                                <ul class="q-mini-list">
+                                                    {% for q in topic.questions %}
+                                                        <li class="q-mini-item">
+                                                            <div class="q-mini-text">
+                                                                <span class="q-bullet">📇</span>
+                                                                <span class="q-preview" title="{{ q.question_text }}">{{ q.question_text|truncate(80) }}</span>
+                                                            </div>
+                                                            <div class="q-mini-actions">
+                                                                <button class="mini-btn edit-btn" onclick="openEditModal('{{ q.id }}', `{{ q.question_text|escape }}`, `{{ q.answer_text|escape }}`, '{{ topic.id }}', '{{ subject.id }}')" title="Edit">
+                                                                    <i class="fa-solid fa-pen"></i>
+                                                                </button>
+                                                                <a href="{{ url_for('questions.delete_question', id=q.id) }}" class="mini-btn delete-btn" onclick="return confirm('Delete this question?')" title="Delete">
+                                                                    <i class="fa-solid fa-trash"></i>
+                                                                </a>
+                                                            </div>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% else %}
+                                                <p class="empty-label">No cards in this topic yet. Click "Card +" to add one!</p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="empty-topics">
+                                <p>No topics created. Create a topic to organize questions.</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="empty-state glass-panel full-width">
+                <div class="empty-icon">📂</div>
+                <h2>Create Your First Deck</h2>
+                <p>Get started by creating a subject, adding topics, and importing or writing study questions.</p>
+                <button class="btn btn-primary" onclick="openModal('addSubjectModal')">
+                    <i class="fa-solid fa-plus"></i> Add Subject
+                </button>
+            </div>
+        {% endif %}
+    </div>
+{% endif %}
+
+<!-- Add Subject Modal -->
+<div id="addSubjectModal" class="modal-overlay">
+    <div class="modal-content glass-panel">
+        <div class="modal-header">
+            <h3>Add New Subject</h3>
+            <button class="modal-close" onclick="closeModal('addSubjectModal')">&times;</button>
+        </div>
+        <form action="{{ url_for('questions.add_subject') }}" method="POST">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="subject_name">Subject Name</label>
+                    <input type="text" id="subject_name" name="name" placeholder="e.g. Core Java, Data Structures" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('addSubjectModal')">Cancel</button>
+                <button type="submit" class="btn btn-primary">Create Subject</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Add Topic Modal -->
+<div id="addTopicModal" class="modal-overlay">
+    <div class="modal-content glass-panel">
+        <div class="modal-header">
+            <h3>Add New Topic</h3>
+            <button class="modal-close" onclick="closeModal('addTopicModal')">&times;</button>
+        </div>
+        <form action="{{ url_for('questions.add_topic') }}" method="POST">
+            <input type="hidden" id="add_topic_subject_id" name="subject_id">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="topic_name">Topic Name</label>
+                    <input type="text" id="topic_name" name="name" placeholder="e.g. Multithreading, Serialization" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('addTopicModal')">Cancel</button>
+                <button type="submit" class="btn btn-primary">Create Topic</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Add Question Modal -->
+<div id="addQuestionModal" class="modal-overlay">
+    <div class="modal-content glass-panel">
+        <div class="modal-header">
+            <h3>Add New Study Card</h3>
+            <button class="modal-close" onclick="closeModal('addQuestionModal')">&times;</button>
+        </div>
+        <form action="{{ url_for('questions.add_question') }}" method="POST">
+            <input type="hidden" id="add_q_topic_id" name="topic_id">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="add_q_text">Question (Front of Card)</label>
+                    <textarea id="add_q_text" name="question_text" rows="4" placeholder="Write your question here..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="add_q_ans">Answer (Back of Card)</label>
+                    <textarea id="add_q_ans" name="answer_text" rows="4" placeholder="Write the correct answer here..." required></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('addQuestionModal')">Cancel</button>
+                <button type="submit" class="btn btn-primary">Add Card</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Edit Question Modal -->
+<div id="editQuestionModal" class="modal-overlay">
+    <div class="modal-content glass-panel">
+        <div class="modal-header">
+            <h3>Edit Study Card</h3>
+            <button class="modal-close" onclick="closeModal('editQuestionModal')">&times;</button>
+        </div>
+        <form id="editQuestionForm" action="" method="POST">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="edit_q_topic">Category Topic</label>
+                    <select id="edit_q_topic" name="topic_id" class="form-control" required>
+                        {% for sub in subjects %}
+                            <optgroup label="{{ sub.name }}">
+                                {% for topic in sub.topics %}
+                                    <option value="{{ topic.id }}">{{ topic.name }}</option>
+                                {% endfor %}
+                            </optgroup>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="edit_q_text">Question (Front of Card)</label>
+                    <textarea id="edit_q_text" name="question_text" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="edit_q_ans">Answer (Back of Card)</label>
+                    <textarea id="edit_q_ans" name="answer_text" rows="4" required></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('editQuestionModal')">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Import Modal -->
+<div id="importModal" class="modal-overlay">
+    <div class="modal-content glass-panel">
+        <div class="modal-header">
+            <h3>Import Decks</h3>
+            <button class="modal-close" onclick="closeModal('importModal')">&times;</button>
+        </div>
+        <form action="{{ url_for('questions.import_questions') }}" method="POST" enctype="multipart/form-data">
+            <div class="modal-body">
+                <p>Upload a StudyForge exported JSON file to import subjects, topics, and cards into your account.</p>
+                <div class="form-group file-input-group">
+                    <input type="file" id="import_file" name="import_file" accept=".json" required>
+                    <label for="import_file" class="file-label">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <span>Select JSON File</span>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('importModal')">Cancel</button>
+                <button type="submit" class="btn btn-primary">Upload & Import</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Toggle accordion lists for topics
+    function toggleTopicAccordion(id) {
+        const element = document.getElementById(id);
+        if (element.classList.contains('collapsed')) {
+            element.classList.remove('collapsed');
+        } else {
+            element.classList.add('collapsed');
+        }
+    }
+
+    // Modal control shortcuts
+    function openAddTopicModal(subjectId) {
+        document.getElementById('add_topic_subject_id').value = subjectId;
+        openModal('addTopicModal');
+    }
+
+    function openAddQuestionModal(topicId, subjectId) {
+        document.getElementById('add_q_topic_id').value = topicId;
+        openModal('addQuestionModal');
+    }
+
+    function openEditModal(qId, qText, qAns, topicId, subjectId) {
+        // Set form action dynamically
+        const form = document.getElementById('editQuestionForm');
+        form.action = `/questions/question/edit/${qId}`;
+        
+        // Populate inputs
+        document.getElementById('edit_q_text').value = qText;
+        document.getElementById('edit_q_ans').value = qAns;
+        
+        // Select topic in dropdown
+        const select = document.getElementById('edit_q_topic');
+        select.value = topicId;
+        
+        openModal('editQuestionModal');
+    }
+
+    // File input visual feedback
+    const fileInput = document.getElementById('import_file');
+    if (fileInput) {
+        fileInput.addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : "Select JSON File";
+            document.querySelector('.file-label span').textContent = fileName;
+        });
+    }
+</script>
+{% endblock %}

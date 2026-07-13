@@ -1,0 +1,1202 @@
+[
+    {
+        "number": 1,
+        "question": "What are static blocks and static initalizers in Java?",
+        "answer": "Static blocks or static initializers are used to initalize static fields in java. we declare static blocks when we want to intialize static fields in our class. Static blocks gets executed exactly once when the class is loaded . Static blocks are executed even before the constructors are executed."
+    },
+    {
+        "number": 2,
+        "question": "How to call one constructor from the other constructor?",
+        "answer": "With in the same class if we want to call one constructor from other we use this() method. Based on the number of parameters we pass appropriate this() method is called. Restrictions for using this method : \u25cf this must be the first statement in the constructor 2)we cannot use two this() methods in the constructor"
+    },
+    {
+        "number": 3,
+        "question": "What is method overriding in java?",
+        "answer": "If we have methods with same signature (same name, same signature, same return type) in super class and subclass then we say subclass method is overridden by superclass. When to use overriding in java If we want same method with different behaviour in superclass and subclass then we go for overriding. When we call overridden method with subclass reference subclass method is called hiding the superclass method."
+    },
+    {
+        "number": 4,
+        "question": "What is super keyword in java?",
+        "answer": "Variables and methods of super class can be overridden in subclass . In case of overriding , a subclass object call its own variables and methods. Subclass cannot access the variables and methods of superclass because the overridden variables or methods hides the methods and variables of super class. But still java provides a way to access super class members even if its members are overridden. Super is used to access superclass variables, methods, constructors. Super can be used in two forms : \u25cf First form is for calling super class constructor. \u25cf Second one is to call super class variables,methods. Super if present must be the first statement."
+    },
+    {
+        "number": 5,
+        "question": "Difference between method overloading and method overriding in java?",
+        "answer": "Method Overloading Method Overriding \u25cf Method Overloading occurs with in the same Method Overriding occurs between class two classes superclass and subclass \u25cf Since it involves with only one class inheritance Since method overriding occurs between superclass is not involved. and subclass inheritance is involved. 3)In overloading return type need not be the same 3) In overriding return type must be same. \u25cf Parameters must be different when we do 4) Parameters must be same. overloading \u25cf Static polymorphism can be acheived using 5) Dynamic polymorphism can be acheived using method overloading method overriding. \u25cf In overloading one method can\u2019t hide the 6) In overriding subclass method hides that of the another superclass method."
+    },
+    {
+        "number": 6,
+        "question": "Difference between abstract class and interface?",
+        "answer": "Interface Abstract Class \u25cf Interface contains only abstract methods 1) Abstract class can contain abstract methods, concrete methods or both \u25cf Access Specifiers for methods in interface 2) Except private we can have any access must be public specifier for methods in abstract class. \u25cf Variables defined must be public , static , 3) Except private variables can have any access final specifiers \u25cf Multiple Inheritance in java is implemented 4)We cannot achieve multiple inheritance using using interface abstract class. \u25cf To implement an interface we use 5)To implement an interface we use implements implements keyword keyword"
+    },
+    {
+        "number": 7,
+        "question": "Why java is platform independent?",
+        "answer": "The most unique feature of java is platform independent. In any programming language soruce code is compiled in to executable code . This cannot be run across all platforms. When javac compiles a java program it generates an executable file called .class file. class file contains byte codes. Byte codes are interpreted only by JVM\u2019s . Since these JVM\u2019s are made available across all platforms by Sun Microsystems, we can execute this byte code in any platform. Byte code generated in windows environment can also be executed in linux environment. This makes java platform independent."
+    },
+    {
+        "number": 8,
+        "question": "What is method overloading in java?",
+        "answer": "A class having two or more methods with same name but with different arguments then we say that those methods are overloaded. Static polymorphism is achieved in java using method overloading. Method overloading is used when we want the methods to perform similar tasks but with different inputs or values. When an overloaded method is invoked java first checks the method name, and the number of arguments ,type of arguments; based on this compiler executes this method. Compiler decides which method to call at compile time. By using overloading static polymorphism or static binding can be achieved in java. Note : Return type is not part of method signature. we may have methods with different return types but return type alone is not sufficient to call a method in java."
+    },
+    {
+        "number": 9,
+        "question": "What is difference between c++ and Java?",
+        "answer": "Java C++ \u25cf Java is platform independent C++ is platform dependent. \u25cf There are no pointers in java There are pointers in C++. \u25cf There is no operator overloading in java C ++ has operator overloading. \u25cf There is garbage collection in java There is no garbage collection \u25cf Supports multithreading Does\u2019nt support multithreading \u25cf There are no templates in java There are templates in java \u25cf There are no global variables in java There are global variables in c++"
+    },
+    {
+        "number": 10,
+        "question": "What is JIT compiler?",
+        "answer": "JIT compiler stands for Just in time compiler. JIT compiler compiles byte code in to executable code . JIT a part of JVM .JIT cannot convert complete java program in to executable code it converts as and when it is needed during execution."
+    },
+    {
+        "number": 11,
+        "question": "What is bytecode in java?",
+        "answer": "When a javac compiler compiler compiles a class it generates .class file. This .class file contains set of instructions called byte code. Byte code is a machine independent language and contains set of instructions which are to be executed only by JVM. JVM can understand this byte codes."
+    },
+    {
+        "number": 12,
+        "question": "Difference between this() and super() in java?",
+        "answer": "this() is used to access one constructor from another with in the same class while super() is used to access superclass constructor. Either this() or super() exists it must be the first statement in the constructor."
+    },
+    {
+        "number": 13,
+        "question": "What is a class?",
+        "answer": "Classes are fundamental or basic unit in Object Oriented Programming .A class is kind of blueprint or template for objects. Class defines variables, methods. A class tells what type of objects we are creating. For example take Department class tells us we can create department type objects. We can create any number of department objects. All programming constructs in java reside in class. When JVM starts running it first looks for the class when we compile. Every Java application must have atleast one class and one main method. Class starts with class keyword. A class definition must be saved in class file that has same as class name. File name must end with .java extension. public class FirstClass {public static void main(String[] args) {System.out.println(\u201cMy First class\u201d); } } If we see the above class when we compile JVM loads the FirstClass and generates a .class file(FirstClass.class). When we run the program we are running the class and then executes the main method."
+    },
+    {
+        "number": 14,
+        "question": "What is an object?",
+        "answer": "An Object is instance of class. A class defines type of object. Each object belongs to some class.Every object contains state and behavior. State is determined by value of attributes and behavior is called method. Objects are alos called as an instance. To instantiate the class we declare with the class type. public classFirstClass {public static voidmain(String[] args) { FirstClass f=new FirstClass(); System.out.println(\u201cMy First class\u201d); } } To instantiate the FirstClass we use this statement FirstClass f=new FirstClass(); f is used to refer FirstClass object."
+    },
+    {
+        "number": 15,
+        "question": "What is method in java?",
+        "answer": "It contains the executable body that can be applied to the specific object of the class. Method includes method name, parameters or arguments and return type and a body of executable code. Syntax : type methodName(Argument List){ } ex : public float add(int a, int b, int c) methods can have multiple arguments. Separate with commas when we have multiple arguments."
+    },
+    {
+        "number": 16,
+        "question": "What is encapsulation?",
+        "answer": "The process of wrapping or putting up of data in to a single unit class and keeps data safe from misuse is called encapsulation . Through encapsulation we can hide and protect the data stored in java objects.Java supports encapsulation through access control. There are four access control modifiers in java public , private ,protected and default level. For example take a car class , In car we have many parts which is not required for driver to know what all it consists inside. He is required to know only about how to start and stop the car. So we can expose what all are required and hide the rest by using encapsulation."
+    },
+    {
+        "number": 17,
+        "question": "Why main() method is public, static and void in java?",
+        "answer": "public : \u201cpublic\u201d is an access specifier which can be used outside the class. When main method is declared public it means it can be used outside class. static : To call a method we require object. Sometimes it may be required to call a method without the help of object. Then we declare that method as static. JVM calls the main() method without creating object by declaring keyword static. void : void return type is used when a method does\u2019nt return any value . main() method does\u2019nt return any value, so main() is declared as void. Signature : public static void main(String[] args) {"
+    },
+    {
+        "number": 18,
+        "question": "Explain about main() method in java?",
+        "answer": "Main() method is starting point of execution for all java applications. public static void main(String[] args) {} String args[] are array of string objects we need to pass from command line arguments. Every Java application must have atleast one main method."
+    },
+    {
+        "number": 19,
+        "question": "What is constructor in java?",
+        "answer": "A constructor is a special method used to initialize objects in java. we use constructors to initialize all variables in the class when an object is created. As and when an object is created it is initialized automatically with the help of constructor in java. We have two types of constructors Default Constructor Parameterized Constructor Signature : public classname() { } Signature : public classname(parameters list) { }"
+    },
+    {
+        "number": 20,
+        "question": "What is difference between length and length() method in java?",
+        "answer": "length() : In String class we have length() method which is used to return the number of characters in string. Ex : String str = \u201cHello World\u201d; System.out.println(str.length()); Str.length() will return 11 characters including space. length : we have length instance variable in arrays which will return the number of values or objects in array. For example : String days[]={\u201d Sun\u201d,\u201dMon\u201d,\u201dwed\u201d,\u201dthu\u201d,\u201dfri\u201d,\u201dsat\u201d}; Will return 6 since the number of values in days array is 6."
+    },
+    {
+        "number": 21,
+        "question": "What is ASCII Code?",
+        "answer": "ASCII stands for American Standard code for Information Interchange. ASCII character range is 0 to 255. We can\u2019t add more characters to the ASCII Character set. ASCII character set supports only English. That is the reason, if we see C language we can write c language only in English we can\u2019t write in other languages because it uses ASCII code."
+    },
+    {
+        "number": 22,
+        "question": "What is Unicode?",
+        "answer": "Unicode is a character set developed by Unicode Consortium. To support all languages in the world Java supports Unicode values. Unicode characters were represented by 16 bits and its character range is 0- 65,535. Java uses ASCII code for all input elements except for Strings,identifiers, and comments. If we want to use telugu we can use telugu characters for identifiers.We can enter comments in telugu."
+    },
+    {
+        "number": 23,
+        "question": "Difference between Character Constant and String Constant in java?",
+        "answer": "Character constant is enclosed in single quotes. String constants are enclosed in double quotes. Character constants are single digit or character. String Constants are collection of characters. Ex :\u20192\u2019, \u2018A\u2019 Ex : \u201cHello World\u201d"
+    },
+    {
+        "number": 24,
+        "question": "What are constants and how to create constants in java?",
+        "answer": "Constants are fixed values whose values cannot be changed during the execution of program. We create constants in java using final keyword. Ex : final int number =10; final String str=\u201djava-interview \u2013questions\u201d"
+    },
+    {
+        "number": 25,
+        "question": "Difference between \u2018>>\u2019 and \u2018>>>\u2019 operators in java?",
+        "answer": ">> is a right shift operator shifts all of the bits in a value to the right to a specified number of times. int a =15; a= a >> 3; The above line of code moves 15 three characters right. >>> is an unsigned shift operator used to shift right. The places which were vacated by shift are filled with zeroes."
+    },
+    {
+        "number": 26,
+        "question": "Explain Java Coding Standards for classes or Java coding conventions for",
+        "answer": "classes? Sun has created Java Coding standards or Java Coding Conventions . It is recommended highly to follow java coding standards. Classnames should start with uppercase letter. Classnames names should be nouns. If Class name is of multiple words then the first letter of inner word must be capital letter. Ex : Employee, EmployeeDetails, ArrayList, TreeSet, HashSet"
+    },
+    {
+        "number": 27,
+        "question": "Explain Java Coding standards for interfaces?",
+        "answer": "\u25cf Interface should start with uppercase letters \u25cf Interfaces names should be adjectives Example : Runnable, Serializable, Marker, Cloneable"
+    },
+    {
+        "number": 28,
+        "question": "Explain Java Coding standards for Methods?",
+        "answer": "\u25cf Method names should start with small letters. \u25cf Method names are usually verbs \u25cf If method contains multiple words, every inner word should start with uppercase letter. Ex : toString() \u25cf Method name must be combination of verb and noun Ex : getCarName(),getCarNumber()"
+    },
+    {
+        "number": 29,
+        "question": "Explain Java Coding Standards for variables?",
+        "answer": "\u25cf Variable names should start with small letters. \u25cf Variable names should be nouns \u25cf Short meaningful names are recommended. \u25cf If there are multiple words every innerword should start with Uppecase character. Ex : string,value,empName,empSalary"
+    },
+    {
+        "number": 30,
+        "question": "Explain Java Coding Standards for Constants?",
+        "answer": "Constants in java are created using static and final keywords. \u25cf Constants contains only uppercase letters. \u25cf If constant name is combination of two words it should be separated by underscore. \u25cf Constant names are usually nouns. Ex:MAX_VALUE, MIN_VALUE, MAX_PRIORITY, MIN_PRIORITY"
+    },
+    {
+        "number": 31,
+        "question": "Difference between overriding and overloading in java?",
+        "answer": "Overriding Overloading In overriding method names must be same In overloading method names must be same Argument List must be same Argument list must be different atleast order of arguments. Return type can be same or we can return covariant Return type can be different in overloading. type. From 1.5 covariant types are allowed We cant increase the level of checked exceptions. In overloading different exceptions can be thrown. No restrictions for unchecked exceptions A method can only be overridden in subclass A method can be overloaded in same class or subclass Private,static and final variables cannot be Private , static and final variables can be overridden. overloaded. In overriding which method is called is decided at In overloading which method to call is decided at runtime based on the type of object referenced at compile time based on reference type. run time Overriding is also known as Runtime polymorphism, Overloading is also known as Compile time dynamic polymorphism or late binding polymorphism, static polymorphism or early binding."
+    },
+    {
+        "number": 32,
+        "question": "What is \u2018IS-A \u2018 relationship in java?",
+        "answer": "\u2018is a\u2019 relationship is also known as inheritance. We can implement \u2018is a\u2019 relationship or inheritance in java using extends keyword. The advantage or inheritance or is a relationship is reusability of code instead of duplicating the code. Ex : Motor cycle is a vehicle Car is a vehicle Both car and motorcycle extends vehicle."
+    },
+    {
+        "number": 33,
+        "question": "What is \u2018HAS A\u2019\u2019 relationship in java?",
+        "answer": "\u2018Has a \u2018 relationship is also known as \u201ccomposition or Aggregation\u201d. As in inheritance we have \u2018extends\u2019 keyword we don\u2019t have any keyword to implement \u2018Has a\u2019 relationship in java. The main advantage of \u2018Has-A\u2018 relationship in java code reusability."
+    },
+    {
+        "number": 34,
+        "question": "Difference between \u2018IS-A\u2019 and \u2018HAS-A\u2019 relationship in java?",
+        "answer": "IS-A relationship HAS- A RELATIONSHIP Is a relationship also known as inheritance Has a relationship also known as composition or aggregation. For IS-A relationship we uses extends keyword For Has a relationship we use new keyword Ex : Car is a vehicle. Ex : Car has an engine. We cannot say Car is an engine The main advantage of inheritance is reusability of The main advantage of has a relationship is code reusability of code."
+    },
+    {
+        "number": 35,
+        "question": "Explain about instanceof operator in java?",
+        "answer": "Instanceof operator is used to test the object is of which type. Syntax : <reference expression> instanceof <destination type> Instanceof returns true if reference expression is subtype of destination type. Instanceof returns false if reference expression is null. Example : public classInstanceOfExample {public static voidmain(String[] args) {Integer a = newInteger(5);if (a instanceof java.lang.Integer) { System.out.println(true); } else { System.out.println(false); } } } Since a is integer object it returns true. There will be a compile time check whether reference expression is subtype of destination type. If it is not a subtype then compile time error will be shown as Incompatible types"
+    },
+    {
+        "number": 36,
+        "question": "What does null mean in java?",
+        "answer": "When a reference variable doesn\u2019t point to any value it is assigned null. Example : Employee employee; In the above example employee object is not instantiate so it is pointed no where"
+    },
+    {
+        "number": 37,
+        "question": "Can we have multiple classes in single file?",
+        "answer": "Yes we can have multiple classes in single file but it people rarely do that and not recommended. We can have multiple classes in File but only one class can be made public. If we try to make two classes in File public we get following compilation error. \u201cThe public type must be defined in its own file\u201d."
+    },
+    {
+        "number": 38,
+        "question": "What all access modifiers are allowed for top class?",
+        "answer": "For top level class only two access modifiers are allowed. public and default. If a class is declared as public it is visible everywhere. If a class is declared default it is visible only in same package. If we try to give private and protected as access modifier to class we get the below compilation error. Illegal Modifier for the class only public,abstract and final are permitted."
+    },
+    {
+        "number": 39,
+        "question": "What are packages in java?",
+        "answer": "Package is a mechanism to group related classes ,interfaces and enums in to a single module. Package can be declared using the following statement : Syntax : package <package-name> Coding Convention : package name should be declared in small letters. package statement defines the namespace. The main use of package is \u25cf To resolve naming conflicts \u25cf For visibility control : We can define classes and interfaces that are not accessible outside the class."
+    },
+    {
+        "number": 40,
+        "question": "Can we have more than one package statement in source file?",
+        "answer": "We can\u2019t have more than one package statement in source file. In any java program there can be atmost only 1 package statement. We will get compilation error if we have more than one package statement in source file."
+    },
+    {
+        "number": 41,
+        "question": "Can we define package statement after import statement in java?",
+        "answer": "We can\u2019t define package statement after import statement in java. package statement must be the first statement in source file. We can have comments before the package statement."
+    },
+    {
+        "number": 42,
+        "question": "What are identifiers in java?",
+        "answer": "Identifiers are names in java program. Identifiers can be class name, method name or variable name. Rules for defining identifiers in java: \u25cf Identifiers must start with letter,Underscore or dollar($) sign. \u25cf Identifiers can\u2019t start with numbers . \u25cf There is no limit on number of characters in identifier but not recommended to have more than 15 characters \u25cf Java identifiers are case sensitive. \u25cf First letter can be alphabet ,or underscore and dollar sign. From second letter we can have numbers . \u25cf We should\u2019nt use reserve words for identifiers in java."
+    },
+    {
+        "number": 43,
+        "question": "What are access modifiers in java?",
+        "answer": "The important feature of encapsulation is access control. By preventing access control we can misuse of class, methods and members. A class, method or variable can be accessed is determined by the access modifier. There are three types of access modifiers in java. public,private,protected. If no access modifier is specified then it has a default access."
+    },
+    {
+        "number": 44,
+        "question": "What is the difference between access specifiers and access modifiers in",
+        "answer": "java? In C++ we have access specifiers as public,private,protected and default and access modifiers as static, final. But there is no such divison of access specifiers and access modifiers in java. In Java we have access modifiers and non access modifiers. Access Modifiers : public, private, protected, default Non Access Modifiers : abstract, final, stricfp."
+    },
+    {
+        "number": 45,
+        "question": "What access modifiers can be used for class?",
+        "answer": "We can use only two access modifiers for class public and default. public: A class with public modifier can be visible \u25cf In the same class \u25cf In the same package subclass \u25cf In the same package nonsubclass \u25cf In the different package subclass \u25cf In the different package non subclass. default : A class with default modifier can be accesed \u25cf In the same class \u25cf In the same package subclass \u25cf In the same package nonsubclass \u25cf In the different package subclass \u25cf In the different package non subclass."
+    },
+    {
+        "number": 46,
+        "question": "Explain what access modifiers can be used for methods?",
+        "answer": "We can use all access modifiers public, private,protected and default for methods. public : When a method is declared as public it can be accessed \u25cf In the same class \u25cf In the same package subclass \u25cf In the same package nonsubclass \u25cf In the different package subclass \u25cf In the different package non subclass. default : When a method is declared as default, we can access that method in \u25cf In the same class \u25cf In the same package subclass \u25cf In the same package non subclass We cannot access default access method in \u25cf Different package subclass \u25cf Different package non subclass. protected : When a method is declared as protected it can be accessed \u25cf With in the same class \u25cf With in the same package subclass \u25cf With in the same package non subclass \u25cf With in different package subclass It cannot be accessed non subclass in different package. private : When a method is declared as private it can be accessed only in that class. It cannot be accessed in \u25cf Same package subclass \u25cf Same package non subclass \u25cf Different package subclass \u25cf Different package non subclass."
+    },
+    {
+        "number": 47,
+        "question": "Explain what access modifiers can be used for variables?",
+        "answer": "We can use all access modifiers public, private,protected and default for variables. public : When a variables is declared as public it can be accessed \u25cf In the same class \u25cf In the same package subclass \u25cf In the same package nonsubclass \u25cf In the different package subclass \u25cf In the different package non subclass. default : When a variables is declared as default, we can access that method in \u25cf In the same class \u25cf In the same package subclass \u25cf In the same package non subclass We cannot access default access variables in \u25cf Different package subclass \u25cf Different package non subclass. protected : When a variables is declared as protected it can be accessed \u25cf With in the same class \u25cf With in the same package subclass \u25cf With in the same package non subclass \u25cf With in different package subclass It cannot be accessed non subclass in different package. private : When a variables is declared as private it can be accessed only in that class. It cannot be accessed in \u25cf Same package subclass \u25cf Same package non subclass \u25cf Different package subclass \u25cf Different package non subclass."
+    },
+    {
+        "number": 48,
+        "question": "What is final access modifier in java?",
+        "answer": "final access modifier can be used for class, method and variables. The main advantage of final access modifier is security no one can modify our classes, variables and methods. The main disadvantage of final access modifier is we cannot implement oops concepts in java. Ex : Inheritance, polymorphism. final class : A final class cannot be extended or subclassed. We ar e preventing inheritance by marking a class as final. But we can still access the methods of this class by composition. Ex: String class final methods: Method overriding is one of the important features in java. But there are situations where we may not want to use this feature. Then we declared method as final which will print overriding. To allow a method from being overridden we use final access modifier for methods. final variables : If a variable is declared as final ,it behaves like a constant . We cannot modify the value of final variable. Any attempt to modify the final variable results in compilation error. The error is as follows \u201cfinal variable cannot be assigned.\u201d"
+    },
+    {
+        "number": 49,
+        "question": "Explain about abstract classes in java?",
+        "answer": "Sometimes we may come across a situation where we cannot provide implementation to all the methods in a class. We want to leave the implementation to a class that extends it. In such case we declare a class as abstract.To make a class abstract we use key word abstract. Any class that contains one or more abstract methods is declared as abstract. If we don\u2019t declare class as abstract which contains abstract methods we get compile time error. We get the following error. \u201cThe type <class-name> must be an abstract class to define abstract methods.\u201d Signature ; abstract class <class-name> { } For example if we take a vehicle class we cannot provide implementation to it because there may be two wheelers , four wheelers etc. At that moment we make vehicle class abstract. All the common features of vehicles are declared as abstract methods in vehicle class. Any class which extends vehicle will provide its method implementation. It\u2019s the responsibility of subclass to provide implementation. The important features of abstract classes are : \u25cf Abstract classes cannot be instantiated. \u25cf An abstract classes contains abstract methods, concrete methods or both. \u25cf Any class which extends abstract class must override all methods of abstract class. \u25cf An abstract class can contain either 0 or more abstract methods. Though we cannot instantiate abstract classes we can create object references . Through superclass references we can point to subclass."
+    },
+    {
+        "number": 50,
+        "question": "Can we create constructor in abstract class?",
+        "answer": "We can create constructor in abstract class , it does\u2019nt give any compilation error. But when we cannot instantiate class there is no use in creating a constructor for abstract class."
+    },
+    {
+        "number": 51,
+        "question": "What are abstract methods in java?",
+        "answer": "An abstract method is the method which does\u2019nt have any body. Abstract method is declared with keyword abstract and semicolon in place of method body. Signature : public abstract void <method name>(); Ex : public abstract void getDetails(); It is the responsibility of subclass to provide implementation to abstract method defined in abstract class."
+    },
+    {
+        "number": 52,
+        "question": "What is an exception in java?",
+        "answer": "In java exception is an object. Exceptions are created when an abnormal situations are arised in our program. Exceptions can be created by JVM or by our application code. All Exception classes are defined in java.lang. In otherwords we can say Exception as run time error."
+    },
+    {
+        "number": 53,
+        "question": "State some situations where exceptions may arise in java?",
+        "answer": "\u25cf Accesing an element that does not exist in array. \u25cf Invalid conversion of number to string and string to number. (NumberFormatException) \u25cf Invalid casting of class (Class cast Exception) \u25cf Trying to create object for interface or abstract class (Instantiation Exception)"
+    },
+    {
+        "number": 54,
+        "question": "What is Exception handling in java?",
+        "answer": "Exception handling is a mechanism what to do when some abnormal situation arises in program. When an exception is raised in program it leads to termination of program when it is not handled properly. The significance of exception handling comes here in order not to terminate a program abruptly and to continue with the rest of program normally. This can be done with help of Exception handling."
+    },
+    {
+        "number": 55,
+        "question": "What is an eror in Java?",
+        "answer": "Error is the subclass of Throwable class in java. When errors are caused by our program we call that as Exception, but some times exceptions are caused due to some environment issues such as running out of memory. In such cases we can\u2019t handle the exceptions. Exceptions which cannot be recovered are called as errors in java. Ex : Out of memory issues."
+    },
+    {
+        "number": 56,
+        "question": "What are advantages of Exception handling in java?",
+        "answer": "\u25cf Separating normal code from exception handling code to avoid abnormal termination of program. \u25cf Categorizing in to different types of Exceptions so that rather than handling all exceptions with Exception root class we can handle with specific exceptions. It is recommended to handle exceptions with specific Exception instead of handling with Exception root class. \u25cf Call stack mechanism : If a method throws an exception and it is not handled immediately, then that exception is propagated or thrown to the caller of that method. This propogation continues till it finds an appropriate exception handler ,if it finds handler it would be handled otherwise program terminates abruptly."
+    },
+    {
+        "number": 57,
+        "question": "In how many ways we can do exception handling in java?",
+        "answer": "We can handle exceptions in either of the two ways : \u25cf By specifying try catch block where we can catch the exception. \u25cf Declaring a method with throws clause ."
+    },
+    {
+        "number": 58,
+        "question": "List out five keywords related to Exception handling?",
+        "answer": "\u25cf Try \u25cf Catch \u25cf throw \u25cf throws \u25cf finally"
+    },
+    {
+        "number": 59,
+        "question": "Explain try and catch keywords in java?",
+        "answer": "In try block we define all exception causing code. In java try and catch forms a unit. A catch block catches the exception thrown by preceding try block. Catch block cannot catch an exception thrown by another try block. If there is no exception causing code in our program or exception is not raised in our code jvm ignores the try catch block. Syntax : try { } Catch(Exception e) { }"
+    },
+    {
+        "number": 60,
+        "question": "Can we have try block without catch block?",
+        "answer": "Each try block requires atleast one catch block or finally block. A try block without catch or finally will result in compiler error. We can skip either of catch or finally block but not both."
+    },
+    {
+        "number": 61,
+        "question": "Can we have multiple catch block for a try block?",
+        "answer": "In some cases our code may throw more than one exception. In such case we can specify two or more catch clauses, each catch handling different type of exception. When an exception is thrown jvm checks each catch statement in order and the first one which matches the type of exception is execution and remaining catch blocks are skipped. Try with multiple catch blocks is highly recommended in java. If try with multiple catch blocks are present the order of catch blocks is very important and the order should be from child to parent."
+    },
+    {
+        "number": 62,
+        "question": "Explain importance of finally block in java?",
+        "answer": "Finally block is used for cleaning up of resources such as closing connections, sockets etc. if try block executes with no exceptions then finally is called after try block without executing catch block. If there is exception thrown in try block finally block executes immediately after catch block. If an exception is thrown,finally block will be executed even if the no catch block handles the exception."
+    },
+    {
+        "number": 63,
+        "question": "Can we have any code between try and catch blocks?",
+        "answer": "We shouldn\u2019t declare any code between try and catch block. Catch block should immediately start after try block. try{ //code } System.out.println(\u201cone line of code\u201d); // illegal catch(Exception e){ // }"
+    },
+    {
+        "number": 64,
+        "question": "Can we have any code between try and finally blocks?",
+        "answer": "We shouldn\u2019t declare any code between try and finally block. finally block should immediately start after catch block.If there is no catch block it should immediately start after try block. try{ //code } System.out.println(\u201cone line of code\u201d); // illegal finally{ // }"
+    },
+    {
+        "number": 65,
+        "question": "Can we catch more than one exception in single catch block?",
+        "answer": "From Java 7, we can catch more than one exception with single catch block. This type of handling reduces the code duplication. Note : When we catch more than one exception in single catch block , catch parameter is implicity final. We cannot assign any value to catch parameter. Ex : catch(ArrayIndexOutOfBoundsException || ArithmeticException e) { } In the above example e is final we cannot assign any value or modify e in catch statement."
+    },
+    {
+        "number": 66,
+        "question": "What are checked Exceptions?",
+        "answer": "\u25cf All the subclasses of Throwable class except error,Runtime Exception and its subclasses are checked exceptions. \u25cf Checked exception should be thrown with keyword throws or should be provided try catch block, else the program would not compile. We do get compilation error. Examples : \u25cf IOException, \u25cf SQlException, \u25cf FileNotFoundException, \u25cf InvocationTargetException, \u25cf CloneNotSupportedException \u25cf ClassNotFoundException \u25cf InstantiationException"
+    },
+    {
+        "number": 67,
+        "question": "What are unchecked exceptions in java?",
+        "answer": "All subclasses of RuntimeException are called unchecked exceptions. These are unchecked exceptions because compiler does not checks if a method handles or throws exceptions. Program compiles even if we do not catch the exception or throws the exception. If an exception occurs in the program,program terminates . It is difficult to handle these exceptions because there may be many places causing exceptions. Example : 1) Arithmetic Exception \u25cf ArrayIndexOutOfBoundsException \u25cf ClassCastException \u25cf IndexOutOfBoundException \u25cf NullPointerException \u25cf NumberFormatException \u25cf StringIndexOutOfBounds \u25cf UnsupportedOperationException"
+    },
+    {
+        "number": 68,
+        "question": "Explain differences between checked and Unchecked exceptions in java?",
+        "answer": "Unchecked Exception Checked Exception \u25cf All the subclasses of RuntimeException are All subclasses of Throwable class except called unchecked exception. RuntimeException are called as checked exceptions \u25cf Unchecked exceptions need not be handled at Checked Exceptions need to be handled at compile compile time time. \u25cf These exceptions arise mostly due to coding mistakes in our program. \u25cf ArrayIndexOutOfBoundsException, SqlException, ClassCastException, IndexOutOfBoundException FileNotFoundException,ClassNotFoundException"
+    },
+    {
+        "number": 69,
+        "question": "What is default Exception handling in java?",
+        "answer": "When JVM detects exception causing code, it constructs a new exception handling object by including the following information. \u25cf Name of Exception \u25cf Description about the Exception \u25cf Location of Exception. After creation of object by JVM it checks whether there is exception handling code or not. If there is exception handling code then exception handles and continues the program. If there is no exception handling code JVM give the responsibility of exception handling to default handler and terminates abruptly. Default Exception handler displays description of exception,prints the stacktrace and location of exception and terminates the program. Note : The main disadvantage of this default exception handling is program terminates abruptly."
+    },
+    {
+        "number": 70,
+        "question": "Explain throw keyword in java?",
+        "answer": "Generally JVM throws the exception and we handle the exceptions by using try catch block. But there are situations where we have to throw userdefined exceptions or runtime exceptions. In such case we use throw keyword to throw exception explicitly. Syntax : throw throwableInstance; Throwable instance must be of type throwable or any of its subclasses. After the throw statement execution stops and subsequent statements are not executed. Once exception object is thrown JVM checks is there any catch block to handle the exception. If not then the next catch statement till it finds the appropriate handler. If appropriate handler is not found ,then default exception handler halts the program and prints the description and location of exception. In general we use throw keyword for throwing userdefined or customized exception."
+    },
+    {
+        "number": 71,
+        "question": "Can we write any code after throw statement?",
+        "answer": "After throw statement jvm stop execution and subsequent statements are not executed. If we try to write any statement after throw we do get compile time error saying unreachable code."
+    },
+    {
+        "number": 72,
+        "question": "Explain importance of throws keyword in java?",
+        "answer": "Throws statement is used at the end of method signature to indicate that an exception of a given type may be thrown from the method. The main purpose of throws keyword is to delegate responsibility of exception handling to the caller methods, in the case of checked exception. In the case of unchecked exceptions, it is not required to use throws keyword. We can use throws keyword only for throwable types otherwise compile time error saying incompatible types. An error is unchecked , it is not required to handle by try catch or by throws. Syntax : Class Test{ Public static void main(String args[]) throws IE { } } Note : The method should throw only checked exceptions and subclasses of checked exceptions. It is not recommended to specify exception superclasses in the throws class when the actual exceptions thrown in the method are instances of their subclass."
+    },
+    {
+        "number": 73,
+        "question": "Explain the importance of finally over return statement?",
+        "answer": "finally block is more important than return statement when both are present in a program. For example if there is any return statement present inside try or catch block , and finally block is also present first finally statement will be executed and then return statement will be considered."
+    },
+    {
+        "number": 74,
+        "question": "Explain a situation where finally block will not be executed?",
+        "answer": "Finally block will not be executed whenever jvm shutdowns. If we use system.exit(0) in try statement finally block if present will not be executed."
+    },
+    {
+        "number": 75,
+        "question": "Can we use catch statement for checked exceptions?",
+        "answer": "If there is no chance of raising an exception in our code then we can\u2019t declare catch block for handling checked exceptions .This raises compile time error if we try to handle checked exceptions when there is no possibility of causing exception."
+    },
+    {
+        "number": 76,
+        "question": "What are user defined exceptions?",
+        "answer": "To create customized error messages we use userdefined exceptions. We can create user defined exceptions as checked or unchecked exceptions. We can create user defined exceptions that extend Exception class or subclasses of checked exceptions so that userdefined exception becomes checked. Userdefined exceptions can extend RuntimeException to create userdefined unchecked exceptions. Note : It is recommended to keep our customized exception class as unchecked,i.e we need to extend Runtime Exception class but not Excpetion class."
+    },
+    {
+        "number": 77,
+        "question": "Can we rethrow the same exception from catch handler?",
+        "answer": "Yes we can rethrow the same exception from our catch handler. If we want to rethrow checked exception from a catch block we need to declare that exception."
+    },
+    {
+        "number": 78,
+        "question": "Can we nested try statements in java?",
+        "answer": "Yes try statements can be nested. We can declare try statements inside the block of another try statement."
+    },
+    {
+        "number": 79,
+        "question": "Explain the importance of throwable class and its methods?",
+        "answer": "Throwable class is the root class for Exceptions. All exceptions are derived from this throwable class. The two main subclasses of Throwable are Exception and Error. The three methods defined in throwable class are : \u25cf void printStackTrace() : This prints the exception information in the following format : Name of the exception, description followed by stack trace. \u25cf getMessage() This method prints only the description of Exception. \u25cf toString(): It prints the name and description of Exception."
+    },
+    {
+        "number": 80,
+        "question": "Explain when ClassNotFoundException will be raised?",
+        "answer": "When JVM tries to load a class by its string name, and couldn\u2019t able to find the class classNotFoundException will be thrown. An example for this exception is when class name is misspelled and when we try to load the class by string name hence class cannot be found which raises ClassNotFoundException."
+    },
+    {
+        "number": 81,
+        "question": "Explain when NoClassDefFoundError will be raised?",
+        "answer": "This error is thrown when JVM tries to load the class but no definition for that class is found NoClassDefFoundError will occur. The class may exist at compile time but unable to find at runtime. This might be due to misspelled classname at command line, or classpath is not specified properly , or the class file with byte code is no longer available."
+    },
+    {
+        "number": 82,
+        "question": "What is process?",
+        "answer": "A process is a program in execution. Every process have their own memory space.Process are heavy weight and requires their own address space. One or more threads make a process."
+    },
+    {
+        "number": 83,
+        "question": "What is thread in java?",
+        "answer": "Thread is separate path of execution in program. Threads are \u25cf Light weight \u25cf They share the same address space. \u25cf creating thread is simple when compared to process because creating thread requires less resources when compared to process \u25cf Threads exists in process. A process have atleast one thread."
+    },
+    {
+        "number": 84,
+        "question": "Difference between process and thread?",
+        "answer": "Process Thread \u25cf Program in execution. Separate path of execution in program. One or more threads is called as process. \u25cf Processes are heavy weight Threads are light weight. \u25cf Processes require separate address space. Threads share same address space. \u25cf Interprocess communication is expensive. Interthread communication is less expensive compared to processes. \u25cf Context switching from one process to another Context switching between threads is low cost. is costly."
+    },
+    {
+        "number": 85,
+        "question": "What is multitasking?",
+        "answer": "Multitasking means performing more than one activity at a time on the computer. Example Using spreadsheet and using calculator at same time."
+    },
+    {
+        "number": 86,
+        "question": "What are different types of multitasking?",
+        "answer": "There are two different types of multitasking : \u25cf Process based multitasking \u25cf Thread based multitasking Process based multitasking : It allows to run two or more programs concurrently. In process based multitasking a process is the smallest part of code . Example : Running Ms word and Ms powerpoint at a time. Thread based multitasking : It allows to run parts of a program to run concurrently. Example : Formatting the text and printing word document at same time . Java supports thread based multitasking and provides built in support for multithreading."
+    },
+    {
+        "number": 87,
+        "question": "What are the benefits of multithreaded programming?",
+        "answer": "Multithreading enables to use idle time of cpu to another thread which results in faster execution of program. In single threaded environment each task has to be completed before proceeding to next task making cpu idle."
+    },
+    {
+        "number": 88,
+        "question": "Explain thread in java?",
+        "answer": "\u25cf Thread is independent path of execution with in a program. \u25cf A thread consists of three parts Virtual Cpu, Code and data. \u25cf At run time threads share code and data i.e they use same address space. \u25cf Every thread in java is an object of java.lang.Thread class."
+    },
+    {
+        "number": 89,
+        "question": "List Java API that supports threads?",
+        "answer": "java.lang.Thread : This is one of the way to create a thread. By extending Thread class and overriding run() we can create thread in java. java.lang.Runnable : Runnable is an interface in java. By implementing runnable interface and overriding run() we can create thread in java. java.lang.Object : Object class is the super class for all the classes in java. In object class we have three methods wait(), notify(), notifyAll() that supports threads. java.util.concurrent : This package has classes and interfaces that supports concurrent programming. Ex : Executor interface, Future task class etc."
+    },
+    {
+        "number": 90,
+        "question": "Explain about main thread in java?",
+        "answer": "Main thread is the first thread that starts immediately after a program is started. Main thread is important because : \u25cf All the child threads spawn from main thread. \u25cf Main method is the last thread to finish execution. When JVM calls main method() it starts a new thread. Main() method is temporarily stopped while the new thread starts running."
+    },
+    {
+        "number": 91,
+        "question": "In how many ways we can create threads in java?",
+        "answer": "We can create threads in java by any of the two ways : \u25cf By extending Thread class \u25cf By Implementing Runnable interface."
+    },
+    {
+        "number": 92,
+        "question": "Explain creating threads by implementing Runnable class?",
+        "answer": "This is first and foremost way to create threads . By implementing runnable interface and implementing run() method we can create new thread. Method signature : public void run() Run is the starting point for execution for another thread within our program. Example : public class MyClass implements Runnable { @Override public void run() { // T } }"
+    },
+    {
+        "number": 93,
+        "question": "Explain creating threads by extending Thread class?",
+        "answer": "We can create a thread by extending Thread class. The class which extends Thread class must override the run() method. Example : public class MyClass extends Thread { @Override public void run() { // Starting point of Execution } }"
+    },
+    {
+        "number": 94,
+        "question": "Which is the best approach for creating thread?",
+        "answer": "The best way for creating threads is to implement runnable interface. When we extend Thread class we can\u2019t extend any other class. When we create thread by implementing runnable interface we can implement Runnable interface. In both ways we have to implement run() method."
+    },
+    {
+        "number": 95,
+        "question": "Explain the importance of thread scheduler in java?",
+        "answer": "Thread scheduler is part of JVM use to determine which thread to run at this moment when there are multiple threads. Only threads in runnable state are choosen by scheduler. Thread scheduler first allocates the processor time to the higher priority threads. To allocate microprocessor time in between the threads of the same priority, thread scheduler follows round robin fasion."
+    },
+    {
+        "number": 96,
+        "question": "Explain the life cycle of thread?",
+        "answer": "A thread can be in any of the five states : \u25cf New : When the instance of thread is created it will be in New state. Ex : Thread t= new Thread(); In the above example t is in new state. The thread is created but not in active state to make it active we need to call start() method on it. \u25cf Runnable state : A thread can be in the runnable state in either of the following two ways : a) When the start method is invoked or b) A thread can also be in runnable state after coming back from blocked or sleeping or waiting state. \u25cf Running state : If thread scheduler allocates cpu time, then the thread will be in running state. \u25cf Waited /Blocking/Sleeping state: In this state the thread can be made temporarily inactive for a short period of time. A thread can be in the above state in any of the following ways: \u25cf The thread waits to acquire lock of an object. \u25cf The thread waits for another thread to complete. \u25cf The thread waits for notification of other thread. \u25cf Dead State : A thread is in dead state when thread\u2019s run method execution is complete. It dies automatically when thread\u2019s run method execution is completed and the thread object will be garbage collected."
+    },
+    {
+        "number": 97,
+        "question": "Can we restart a dead thread in java?",
+        "answer": "If we try to restart a dead thread by using start method we will get run time exception since the thread is not alive."
+    },
+    {
+        "number": 98,
+        "question": "Can one thread block the other thread?",
+        "answer": "No one thread cannot block the other thread in java. It can block the current thread that is running."
+    },
+    {
+        "number": 99,
+        "question": "Can we restart a thread already started in java?",
+        "answer": "A thread can be started in java using start() method in java. If we call start method second time once it is started it will cause RunTimeException(IllegalThreadStateException). A runnable thread cannot be restarted."
+    },
+    {
+        "number": 100,
+        "question": "What happens if we don\u2019t override run method?",
+        "answer": "If we don\u2019t override run method .Then default implementation of Thread class run() method will be executed and hence the thread will never be in runnable state."
+    },
+    {
+        "number": 101,
+        "question": "Can we overload run() method in java?",
+        "answer": "We can overload run method but Thread class start method will always cal run method with no arguments. But the overloaded method will not be called by start method we have to explicitly call this start() method."
+    },
+    {
+        "number": 102,
+        "question": "What is a lock or purpose of locks in java?",
+        "answer": "Lock also called monitor is used to prevent access to a shared resource by multiple threads. A lock is associated to shared resource. Whenever a thread wants to access a shared resource if must first acquire a lock . If already a lock has been acquired by other it can\u2019t access that shared resource. At this moment the thread has to wait until another thread releases the lock on shared resource. To lock an object we use synchronization in java. A lock protects section of code allowing only one thread to execute at at a time."
+    },
+    {
+        "number": 103,
+        "question": "In how many ways we can do synchronization in java?",
+        "answer": "There are two ways to do synchronization in java: \u25cf Synchronized methods \u25cf Synchronized blocks To do synchronization we use synchronize keyword."
+    },
+    {
+        "number": 104,
+        "question": "What are synchronized methods?",
+        "answer": "If we want a method of object to be accessed by single thread at a time we declare that method with synchronized keyword. Signature : public synchronized void methodName(){} To execute synchronized method first lock has to be acquired on that object. Once synchronized method is called lock will be automatically acquired on that method when no other thread has lock on that method. once lock has been acquired then synchronized method gets executed. Once synchronized method execution completes automatically lock will be released. The prerequisite to execute a synchronized method is to acquire lock before method execution. If there is a lock already acquired by any other thread it waits till the other thread completes."
+    },
+    {
+        "number": 105,
+        "question": "When do we use synchronized methods in java?",
+        "answer": "If multiple threads tries to access a method where method can manipulate the state of object , in such scenario we can declare a method as synchronized."
+    },
+    {
+        "number": 106,
+        "question": "When a thread is executing synchronized methods , then is it possible to",
+        "answer": "execute other synchronized methods simultaneously by other threads? No it is not possible to execute synchronized methods by other threads when a thread is inside a synchronized method."
+    },
+    {
+        "number": 107,
+        "question": "When a thread is executing a synchronized method , then is it possible for",
+        "answer": "the same thread to access other synchronized methods of an object? Yes it is possible for thread executing a synchronized method to execute another synchronized method of an object. public synchronized void methodName() { } To execute synchronized method first lock has to be acquired on that object. Once synchronized method is called lock will be automatically acquired on that method when no other thread has lock on that method. once lock has been acquired then synchronized method gets executed. Once synchronized method execution completes automatically lock will be released. The prerequisite to execute a synchronized method is to acquire lock before method execution. If there is a lock already acquired by any other thread it waits till the other thread completes."
+    },
+    {
+        "number": 108,
+        "question": "What are synchronized blocks in java?",
+        "answer": "Synchronizing few lines of code rather than complete method with the help of synchronized keyword are called synchronized blocks. Signature : Synchronized (object reference){// code}"
+    },
+    {
+        "number": 109,
+        "question": "When do we use synchronized blocks and advantages of using",
+        "answer": "synchronized blocks? If very few lines of code requires synchronization then it is recommended to use synchronized blocks. The main advantage of synchronized blocks over synchronized methods is it reduces the waiting time of threads and improves performance of the system."
+    },
+    {
+        "number": 110,
+        "question": "What is class level lock?",
+        "answer": "Acquiring lock on the class instance rather than object of the class is called class level lock. The difference between class level lock and object level lock is in class level lock lock is acquired on class .class instance and in object level lock ,lock is acquired on object of class."
+    },
+    {
+        "number": 111,
+        "question": "Can we synchronize static methods in java?",
+        "answer": "Every class in java has a unique lock associated with it. If a thread wants to execute static synchronize method it need to acquire first class level lock. When a thread was executing static synchronized method no other thread can execute static synchronized method of class since lock is acquired on class. But it can execute the following methods simultaneously : \u25cf Normal static methods \u25cf Normal instance methods \u25cf synchronize instance methods Signature : synchronized(Classname.class){}"
+    },
+    {
+        "number": 112,
+        "question": "Can we use synchronized block for primitives?",
+        "answer": "Synchronized blocks are applicable only for objects if we try to use synchronized blocks for primitives we get compile time error."
+    },
+    {
+        "number": 113,
+        "question": "What are thread priorities and importance of thread priorities in java?",
+        "answer": "When there are several threads in waiting, thread priorities determine which thread to run. In java programming language every thread has a priority. A thread inherits priority of its parent thread. By default thread has normal priority of 5. Thread scheduler uses thread priorities to decide when each thread is allowed to run. Thread scheduler runs higher priority threads first."
+    },
+    {
+        "number": 114,
+        "question": "Explain different types of thread priorities?",
+        "answer": "Every thread in java has priorities in between 1 to 10. By default priority is 5 (Thread.NORM_PRIORITY). The maximum priority would be 10 and minimum would be 1.Thread class defines the following constants(static final variables) to define properties. Thread. MIN_PRIORITY = 1; Thread.NORM_PRIORITY=5; Thread. MAX_PRIORITY=10;"
+    },
+    {
+        "number": 115,
+        "question": "How to change the priority of thread or how to set priority of thread?",
+        "answer": "Thread class has a set method to set the priority of thread and get method to get the priority of the thread. Signature : final void setPriority(int value); The setPriority() method is a request to jvm to set the priority. JVM may or may not oblige the request. We can get the priority of current thread by using getPriority() method of Thread class. final int getPriority() { }"
+    },
+    {
+        "number": 116,
+        "question": "If two threads have same priority which thread will be executed first?",
+        "answer": "We are not guaranteed which thread will be executed first when there are threads with equal priorities in the pool. It depends on thread scheduler to which thread to execute. The scheduler can do any of the following things : \u25cf It can pick any thread from the pool and run it till it completes. \u25cf It can give equal opportunity for all the threads by time slicing."
+    },
+    {
+        "number": 117,
+        "question": "What all methods are used to prevent thread execution?",
+        "answer": "There are three methods in Thread class which prevents execution of thread. \u25cf yield() \u25cf join() \u25cf sleep()"
+    },
+    {
+        "number": 118,
+        "question": "Explain yield() method in thread class?",
+        "answer": "Yield() method makes the current running thread to move in to runnable state from running state giving chance to remaining threads of equal priority which are in waiting state. yield() makes current thread to sleep for a specified amount of time.There is no guarantee that moving a current running thread from runnable to running state. It all depends on thread scheduler it doesn\u2019t gurantee anything. Calling yield() method on thread does not have any affect if object has a lock. The thread does\u2019nt lose any lock if it has acquired a lock earlier. Signature : public static native void yield() { }"
+    },
+    {
+        "number": 119,
+        "question": "Is it possible for yielded thread to get chance for its execution again?",
+        "answer": "Yield() causes current thread to sleep for specified amount of time giving opportunity for other threads of equal priority to execute. Thread scheduler decides whether it get chance for execution again or not. It all depends on mercy of thread scheduler."
+    },
+    {
+        "number": 120,
+        "question": "Explain the importance of join() method in thread class?",
+        "answer": "A thread can invoke the join() method on other thread to wait for other thread to complete its execution. Assume we have two threads, t1 and t2 threads . A running thread t1 invokes join() on thread t2 then t1 thread will wait in to waiting state until t2 completes. Once t2 completes the execution, t1 will continue. join() method throws Interrupted Exception so when ever we use join() method we should handle Interrrupted Exception by throws or by using try catch block. Signature : public final void join() throws InterruptedException { } public final synchronized void join(long millis) throws InterruptedException { } public final synchronized void join(long millis, int nanos) throws InterruptedException { }"
+    },
+    {
+        "number": 121,
+        "question": "Explain purpose of sleep() method in java?",
+        "answer": "sleep() method causes current running thread to sleep for specified amount of time . sleep() method is the minimum amount of the time the current thread sleeps but not the exact amount of time. Signature : public static native void sleep(long millis) throws InterruptedException { } public static void sleep(long millis, int nanos) throws InterruptedException { }"
+    },
+    {
+        "number": 122,
+        "question": "Assume a thread has lock on it, calling sleep() method on that thread will",
+        "answer": "release the lock? Calling sleep() method on thread which has lock does\u2019nt affect. Lock will not be released though the thread sleeps for a specified amount of time."
+    },
+    {
+        "number": 123,
+        "question": "Can sleep() method causes another thread to sleep?",
+        "answer": "No sleep() method causes current thread to sleep not any other thread."
+    },
+    {
+        "number": 124,
+        "question": "Explain about interrupt() method of thread class?",
+        "answer": "Thread class interrupt() method is used to interrupt current thread or another thread. It doesnot mean the current thread to stop immediately, it is polite way of telling or requesting to continue your present work. That is the reason we may not see the impact of interrupt call immediately. Initially thread has a boolean property(interrupted status) false. So when we call interrupt() method status would set to true. This causes the current thread to continue its work and does not have impact immediately. If a thread is in sleeping or waiting status (i.e thread has executed wait () or sleep() method) thread gets interrupted it stops what it is doing and throws an interrupted exception. This is reason we need to handle interrupted exception with throws or try/ catch block."
+    },
+    {
+        "number": 125,
+        "question": "Explain about interthread communication and how it takes place in java?",
+        "answer": "Usually threads are created to perform different unrelated tasks but there may be situations where they may perform related tasks. Interthread communication in java is done with the help of following three methods : \u25cf wait() \u25cf notify() \u25cf notifyAll()"
+    },
+    {
+        "number": 126,
+        "question": "Explain wait(), notify() and notifyAll() methods of object class?",
+        "answer": "wait() : wait() method() makes the thread current thread sleeps and releases the lock until some other thread acquires the lock and calls notify(). notify() :notify() method wakes up the thread that called wait on the same object. notfiyAll() :notifyAll() method wakes up all the threads that are called wait() on the same object. The highest priority threads will run first. All the above three methods are in object class and are called only in synchronized context. All the above three methods must handle InterruptedException by using throws clause or by using try catch clause."
+    },
+    {
+        "number": 127,
+        "question": "Explain why wait() , notify() and notifyAll() methods are in Object class",
+        "answer": "rather than in thread class? First to know why they are in object class we should know what wait(), notify(), notifyAll() methods do. wait() , notify(), notifyAll() methods are object level methods they are called on same object.wait(), notify(), notifyAll() are called on an shared object so to they are kept in object class rather than thread class."
+    },
+    {
+        "number": 128,
+        "question": "Explain IllegalMonitorStateException and when it will be thrown?",
+        "answer": "IllegalMonitorStateException is thrown when wait(), notify() and notifyAll() are called in non synchronized context. Wait(), notify(),notifyAll() must always be called in synchronized context other wise we get this run time exception."
+    },
+    {
+        "number": 129,
+        "question": "When wait(), notify(), notifyAll() methods are called does it releases the lock",
+        "answer": "or holds the acquired lock? wait(), notify(), notifyAll() methods are always called in synchronized context. When these methods are called in synchronized context. So when they enter first in synchronized context thread acquires the lock on current object. When wait(), notify(), notifyAll() methods are called lock is released on that object."
+    },
+    {
+        "number": 130,
+        "question": "Explain which of the following methods releases the lock when yield(),",
+        "answer": "join(),sleep(),wait(),notify(), notifyAll() methods are executed? Method Releases lock (Yes or No) yield() No sleep() No join() No wait() Yes Notify() Yes notifyAll() Yes"
+    },
+    {
+        "number": 131,
+        "question": "What are thread groups?",
+        "answer": "Thread Groups are group of threads and other thread groups. It is a way of grouping threads so that actions can be performed on set of threads for easy maintenance and security purposes. For example we can start and stop all thread groups. We rarely use thread group class. By default all the threads that are created belong to default thread group of the main thread. Every thread belongs to a thread group. Threads that belong to a particular thread group cannot modify threads belonging to another thread group."
+    },
+    {
+        "number": 132,
+        "question": "What are thread local variables?",
+        "answer": "Thread local variables are variables associated to a particular thread rather than object. We declare ThreadLocal object as private static variable in a class. Everytime a new thread accesses object by using getter or setter we are accesing copy of object. Whenever a thread calls get or set method of ThreadLocal instance a new copy is associated with particular object."
+    },
+    {
+        "number": 133,
+        "question": "What are daemon threads in java?",
+        "answer": "Daemon threads are threads which run in background. These are service threads and works for the benefit of other threads. Garbage collector is one of the good example for daemon threads. By default all threads are non daemon. Daemon nature of a thread can be inherited. If parent thread is daemon , child thread also inherits daemon nature of thread."
+    },
+    {
+        "number": 134,
+        "question": "How to make a non daemon thread as daemon?",
+        "answer": "By default all threads are non daemon. We can make non daemon nature of thread to daemon by using setDaemon() method. The important point to note here we can call setDaemon() only before start() method is called on it. If we call setDaemon() after start() method an IllegalThreadStateException will be thrown."
+    },
+    {
+        "number": 135,
+        "question": "Can we make main() thread as daemon?",
+        "answer": "Main thread is always non daemon. We cannot change the non daemon nature of main thread to daemon."
+    },
+    {
+        "number": 136,
+        "question": "What are nested classes in java?",
+        "answer": "Class declared with in another class is defined as nested class. There are two types of nested classes in java. \u25cf Static nested class \u25cf Non static nested class A static nested class has static keyword declared before class definition."
+    },
+    {
+        "number": 137,
+        "question": "What are inner classes or non static nested classes in java?",
+        "answer": "Nested classes without any static keyword declaration in class definition are defined as non static nested classes. Generally non static nested classes are referred as inner classes. There are three types of inner classes in java : \u25cf Local inner class \u25cf Member inner class \u25cf Anonymous inner class"
+    },
+    {
+        "number": 138,
+        "question": "Why to use nested classes in java?",
+        "answer": "(or) What is the purpose of nested class in java? \u25cf Grouping of related classes Classes which are not reusable can be defined as inner class instead of creating inner class. For example : We have a submit button upon click of submit button we need to execute some code. This code is related only to that class and cannot be reused for other class . Instead of creating a new class we can create inner class \u25cf To increase encapsulation : Inner class can access private members of outer class.so by creating getter and setter methods for private variables , outside world can access these variables. But by creating inner class private variables can be accesed only by inner class. \u25cf Code readable and maintainable : Rather than creating a new class we can create inner class so that it is easy to maintain. \u25cf Hiding implementation : Inner class helps us to hide implementation of class."
+    },
+    {
+        "number": 139,
+        "question": "Explain about static nested classes in java?",
+        "answer": "When a static class is defined inside a enclosing class we define that as nested class. Static nested classes are not inner classes. Static nested classes can be instantiated without instance of outer class. A static nested doesnot have access to instance variables and non static methods of outer class."
+    },
+    {
+        "number": 140,
+        "question": "How to instantiate static nested classes in java?",
+        "answer": "We can access static members and static methods of outer class without creating any instance of outer class. Syntax for instantiating Static nested class : OuterclassName.StaticNestedClassName ref=new OuterclassName.StaticNestedClassName();"
+    },
+    {
+        "number": 141,
+        "question": "Explain about method local inner classes or local inner classes in java?",
+        "answer": "Nested classes defined inside a method are local inner classes. We can create objects of local inner class only inside method where class is defined. A local inner classes exist only when method is invoked and goes out of scope when method returns."
+    },
+    {
+        "number": 142,
+        "question": "Explain about features of local inner class?",
+        "answer": "\u25cf Local inner class does not have any access specifier. \u25cf We cannot use access modifiers static for local inner class. But we can use abstract and final for local inner class. \u25cf We cannot declare static members inside local inner classes. \u25cf We can create objects of local inner class only inside method where class is defined. \u25cf Method local inner classes can only access final variables declared inside a method. \u25cf Method local inner classes can be defined inside loops(for,while) and blocks such as if etc."
+    },
+    {
+        "number": 143,
+        "question": "Explain about anonymous inner classes in java?",
+        "answer": "Inner class defined without any class name is called anonymous inner class. Inner class is declared and instantiated using new keyword.The main purpose of anonymous inner classes in java are to provide interface implementation. We use anonymous classes when we need only one instance for a class. We can use all members of enclosing class and final local variables. When we compile anonymous inner classes compiler creates two files \u25cf EnclosingName.class \u25cf EnclsoingName$1.class"
+    },
+    {
+        "number": 144,
+        "question": "Explain restrictions for using anonymous inner classes?",
+        "answer": "\u25cf An anonymous inner class cannot have any constructor because there is no name for class. \u25cf An anonymous inner class cannot define static methods, fields or classes. \u25cf We cannot define an interface anonymously. \u25cf Anonymous inner class can be instantiated only once."
+    },
+    {
+        "number": 145,
+        "question": "Is this valid in java? can we instantiate interface in java?",
+        "answer": "Runnable r = new Runnable() { @Override public void run() { } }; Runnable is an interface.If we see the above code it looks like we are instantiating Runnable interface. But we are not instantiating interface we are instantiating anonymous inner class which is implementation of Runnable interface."
+    },
+    {
+        "number": 146,
+        "question": "Explain about member inner classes?",
+        "answer": "Non static class defined with in enclosing class are called member inner class. A member inner class is defined at member level of class. A member inner class can access the members of outer class including private members. Features of member inner classes : \u25cf A member inner class can be declared abstract or final. \u25cf A member inner class can extend class or implement interface. \u25cf An inner class cannot declare static fields or methods. \u25cf A member inner class can be declared with public, private, protected or default access."
+    },
+    {
+        "number": 147,
+        "question": "How to instantiate member inner class?",
+        "answer": "OuterClassName.InnerclassName inner=new OuterClassReference.new InnerClassName(); We cannot instantiate inner class without outer class reference"
+    },
+    {
+        "number": 148,
+        "question": "How to do encapsulation in Java?",
+        "answer": "Make instance variables private. Define getter and setter methods to access instance variables ."
+    },
+    {
+        "number": 149,
+        "question": "What are reference variables in java?",
+        "answer": "Variables which are used to access objects in java are called reference variables. Ex : Employee emp=new Employee(); In the above example emp is reference variable. Reference variable can be of only one type. A reference variable can point to any number of objects. But if a reference variable is declared final it can\u2019t point to other objects. A reference variable can be declared either to a class type or interface type. If a reference variable is declared with interface type it points to the class that implements the interface."
+    },
+    {
+        "number": 150,
+        "question": "Will the compiler creates a default constructor if I have a parameterized",
+        "answer": "constructor in the class? No compiler won\u2019t create default constructor if there is parameterized constructor in the class. For example if I have a class with no constructors, then compiler will create default constructor. For Example : public classCar {} In the above Car class there are no constructors so compiler creates a default constructor. public classCar {Car(String name) { } } In this example compiler won\u2019t create any default constructor because already there is one constructor in the Car class."
+    },
+    {
+        "number": 151,
+        "question": "Can we have a method name same as class name in java?",
+        "answer": "Yes we can have method name same as class name it won\u2019t throw any compilation error but it shows a warning message that method name is same as class name."
+    },
+    {
+        "number": 152,
+        "question": "Can we override constructors in java?",
+        "answer": "Only methods can be overridden in java. Constructors can\u2019t be inherited in java. So there is no point of verriding constructors in java."
+    },
+    {
+        "number": 153,
+        "question": "Can Static methods access instance variables in java?",
+        "answer": "No.Instance variables can\u2019t be accessed in static methods. When we try to access instance variable in static method we get compilation error. The error is as follows: Cannot make a static reference to the non static field name"
+    },
+    {
+        "number": 154,
+        "question": "How do we access static members in java?",
+        "answer": "Instance variables and instance methods can be accessed using reference variable . But to access static variables or static methods we use Class name in java."
+    },
+    {
+        "number": 155,
+        "question": "Can we override static methods in java?",
+        "answer": "Static methods can\u2019t be overridden. If we have a static method in superclass and subclass with same signature then we don\u2019t say that as overriding. We call that as"
+    },
+    {
+        "number": 156,
+        "question": "Difference between object and reference?",
+        "answer": "Reference and object are both different. Objects are instances of class that resides in heap memory. Objects does\u2019nt have any name so to access objects we use references. There is no alternative way to access objects except through references. Object cannot be assigned to other object and object cannot be passed as an argument to a method. Reference is a variable which is used to access contents of an object. A reference can be assigned to other reference ,passed to a method."
+    },
+    {
+        "number": 157,
+        "question": "Objects or references which of them gets garbage collected?",
+        "answer": "Objects get garbage collected not its references."
+    },
+    {
+        "number": 158,
+        "question": "How many times finalize method will be invoked? who invokes finalize()",
+        "answer": "method in java? Finalize () method will be called only once on object. Before the object gets garbage collected garbage collector will call finalize() method to free the resources. Finalize() method will be called only when object is eligible for garbage collection."
+    },
+    {
+        "number": 159,
+        "question": "Can we able to pass objects as an arguments in java?",
+        "answer": "Only references can be passed to a method not an object. We cannot pass the objects to a method. The largest amount of data that can passed as parameters are long or double."
+    },
+    {
+        "number": 160,
+        "question": "Explain wrapper classes in java?",
+        "answer": "Converting primitives to objects can be done with the help of wrapper classes. Prior to java 1.5 we use Wrapper classes to convert primitives to objects. From java 1.5 we have a new feature autoboxing which is used to convert automatically primitives to objects but in wrapper classes programmer has to take care of converting primitives to objects. Wrapper classes are immutable in java. Once a value is assigned to it we cannot change the value."
+    },
+    {
+        "number": 161,
+        "question": "Explain different types of wrapper classes in java?",
+        "answer": "For every primitive in java we have corresponding wrapper class. Here are list of wrapper classes available in java. Primtive Wrapper Class boolean Boolean int Integer float Float char Character byte Byte long Long short Short"
+    },
+    {
+        "number": 162,
+        "question": "Explain about transient variables in java?",
+        "answer": "To save the state of an object to persistent state we use serialization. If we want a field or variable in the object not to be saved, then we declare that variable or field as transient. Example : public Class Car implements serializable { transient int carnumber; }"
+    },
+    {
+        "number": 163,
+        "question": "Can we serialize static variables in java?",
+        "answer": "Static variables cannot be serialized in java."
+    },
+    {
+        "number": 164,
+        "question": "What is type conversion in java?",
+        "answer": "Assigning a value of one type to variable of other type is called type conversion. Example : int a =10; long b=a; There are two types of conversion in java: \u25cf Widening conversion \u25cf Narrowing conversion"
+    },
+    {
+        "number": 165,
+        "question": "Explain about Automatic type conversion in java?",
+        "answer": "Java automatic type conversion is done if the following conditions are met : \u25cf When two types are compatible Ex : int, float int can be assigned directly to float variable. \u25cf Destination type is larger than source type. Ex : int, long Int can be assigned directly to long .Automatic type conversion takes place if int is assigned to long because long is larger datatype than int. Widening Conversion comes under Automatic type conversion."
+    },
+    {
+        "number": 166,
+        "question": "Explain about narrowing conversion in java?",
+        "answer": "When destination type is smaller than source type we use narrowing conversion mechanism in java. Narrowing conversion has to be done manually if destination type is smaller than source type. To do narrowing conversion we use cast. Cast is nothing but explicit type conversion. Example : long a; byte b; b=(byte)a; Note : casting to be done only on valid types otherwise classcastexception will be thrown."
+    },
+    {
+        "number": 167,
+        "question": "Explain the importance of import keyword in java?",
+        "answer": "Import keyword is used to import single class or package in to our source file.import statement is declared after package decalaration. We use wild character (*) to import package. Note : After compilation the compiled code does not contain import statement it will be replaced with fully qualified class names"
+    },
+    {
+        "number": 168,
+        "question": "Explain naming conventions for packages?",
+        "answer": "Sun defined standard naming conventions for packages. \u25cf Package names should be in small letters. \u25cf Package name starts with reverse company domain name (excluding www) followed by department and project name and then the name of package. Example : com.google.sales.employees"
+    },
+    {
+        "number": 169,
+        "question": "What is classpath?",
+        "answer": "The path where our .class files are saved is referred as classpath.JVM searches for .class files by using the class path specified. Class path is specified by using CLASSPATH environment variable. CLASSPATH environment variable can contain more than one value. CLASSPATH variable containing more than one value is separated by semicolon. Example to set class path from command prompt : set CLASSPATH= C:Program FilesJavajdk1.6.0_25bin;.; only parent directories need to be added to classpath.Java compiler will look for appropriate packages and classes."
+    },
+    {
+        "number": 170,
+        "question": "What is jar?",
+        "answer": "Jar stands for java archive file. Jars are created by using Jar.exe tool. Jar files contains .class files, other resources used in our application and manifest file.Manifest file contains class name with main method.jar contains compressed .class files. Jvm finds these .class files without uncompressing this jar."
+    },
+    {
+        "number": 171,
+        "question": "What is the scope or life time of instance variables?",
+        "answer": "When object is instantiated using new operator variables get allocated in the memory.instance variables remain in memory till the instance gets garbage collected"
+    },
+    {
+        "number": 172,
+        "question": "Explain the scope or life time of class variables or static variables?",
+        "answer": "Static variables do not belong to instances of the class. We can access static fields even before instantiating the class. Static variable remain in memory till the life time of application."
+    },
+    {
+        "number": 173,
+        "question": "Explain scope or life time of local variables in java?",
+        "answer": "Local variables are variables which are defined inside a method. When the method is created local variables gets created in stack memory and this variable gets deleted from memory once the method execution is done."
+    },
+    {
+        "number": 174,
+        "question": "Explain about static imports in java?",
+        "answer": "From Java 5.0 we can import static variables in to source file. Importing static member to source file is referred as static import. The advantage of static import is we can access static variables without class or interface name. Syntax : import static packagename.classname.staticvariablename; Ex : import static com.abc.Employee.eno; To import all static variables from a class in to our source file we use *. import static com.abc.Employee.*"
+    },
+    {
+        "number": 175,
+        "question": "Can we define static methods inside interface?",
+        "answer": "We can\u2019t declare static methods inside interface. Only instance methods are permitted in interfaces.only public and abstract modifiers are permitted for interface methods. If we try to declare static methods inside interface we get compilation error saying \u201cIllegal modifier for the interface method Classname.methodName(); only public & abstract are permitted\u201d."
+    },
+    {
+        "number": 176,
+        "question": "Define interface in java?",
+        "answer": "Interface is collection of abstract methods and constants. An interface is also defined as pure or 100 percent abstract class.Interfaces are implicitly abstract whether we define abstract access modifier or not. A class implementing interface overrides all the abstract methods defined in interface. Implements keyword is used to implement interface."
+    },
+    {
+        "number": 177,
+        "question": "What is the purpose of interface?",
+        "answer": "Interface is a contract . Interface acts like a communication between two objects. When we are defining interface we are defining a contract what our class should do but not how it does. An interface does\u2019nt define what a method does. The power of interface lies when different classes that are unrelated can implement interface. Interfaces are designed to support dynamic method resolution at run time."
+    },
+    {
+        "number": 178,
+        "question": "Explain features of interfaces in java?",
+        "answer": "\u25cf All the methods defined in interfaces are implicitly abstract even though abstract modifier is not declared. \u25cf All the methods in interface are public whether they are declared as public or not. \u25cf variables declared inside interface are by default public, static and final. \u25cf Interfaces cannot be instantiated. \u25cf we cannot declare static methods inside interface. \u25cf \u2018 implements\u2019 keyword is used to implement interface. \u25cf Unlike class, interface can extend any number of interfaces. \u25cf We can define a class inside interface and the class acts like inner class to interface. \u25cf An interface can extend a class and implement an interface \u25cf Multiple inheritance in java is achieved through interfaces."
+    },
+    {
+        "number": 179,
+        "question": "Explain enumeration in java?",
+        "answer": "Enumeration is a new feature from Java 5.0. Enumeration is set of named constants . We use enum keyword to declare enumeration. The values defined in enumeration are enum constants.Each enum constant declared inside a enum class is by default public , static and final. Example : package javaexamples; public enum Days { SUN,MON,TUE,WED,THU,FRI,SAT; } SUN,MON,TUE,WED,THU,FRI,SAT are enum constants."
+    },
+    {
+        "number": 180,
+        "question": "Explain restrictions on using enum?",
+        "answer": "\u25cf Enums cannot extend any other class or enum. \u25cf We cannot instantiate an enum. \u25cf We can declare fields and methods in enum class. But these fields and methods should follow the enum constants otherwise we get compilation error."
+    },
+    {
+        "number": 181,
+        "question": "Explain about field hiding in java?",
+        "answer": "If superclass and subclass have same fields subclass cannot override superclass fields. In this case subclass fields hides the super class fields. If we want to use super class variables in subclass we use super keyword to access super class variables."
+    },
+    {
+        "number": 182,
+        "question": "Explain about Varargs in java?",
+        "answer": "Beginning with Java 5 has a new feature Varargs which allows methods to have variable number of arguments. It simplifies creation of methods when there are more number of arguments. Earlier to java 5 Varargs are handled by creating method with array of arguments. Ex : public static void main(String[] args) A variable length argument is specified using ellispses with type in signature. main method with var args is written as follows: public static void main(String \u2026 args) If no arguments are passes we get array with size 0.There is no need for null check if no arguments are passed."
+    },
+    {
+        "number": 183,
+        "question": "Explain where variables are created in memory?",
+        "answer": "When we declare variables variables are created in stack. So when the variable is out of scope those variables get garbage collected."
+    },
+    {
+        "number": 184,
+        "question": "Can we use Switch statement with Strings?",
+        "answer": "Prior to Java 7 we can use only int values and enum constants in Switch .Starting with Java 7 we can use strings in Switch statement. If we use strings in switch statement prior to Java 7 we will get compile time error \u201conly int and enum constants are permitted\u201d."
+    },
+    {
+        "number": 185,
+        "question": "In java how do we copy objects?",
+        "answer": "In Java we cannot copy two objects but by assigning one reference to other we can copy objects. For example if we have a reference r1 that point to object .so when we declare r2=r1, we are assigning reference r1 to r2 so now r2 points to the same object where r1 points. Any changes done by one reference on an object will reflect to other."
+    },
+    {
+        "number": 186,
+        "question": "Explain about procedural programming language or structured",
+        "answer": "programming language and its features? In traditional programming language to solve a problem we use set of procedures. Once the procedures or functions are determined next they concentrate on storing data. Features : \u25cf In this top down approach is followed. First procedures were determined and then concentrate on minute details. \u25cf Concentrate more on functions and procedure rather than data. \u25cf In traditional programming language procedures manipulate global data without knowing to other procedures. \u25cf Very little concentration on minute details The main drawback of traditional programming languages works well only for small problems. But not suitable for larger problems. Ex : C language, Pascal"
+    },
+    {
+        "number": 187,
+        "question": "Explain about object oriented programming and its features?",
+        "answer": "Java replaced traditional programming language developed in 1970\u2019s. In Object oriented programming everything is made up of object. In this language bottom up approach is followed. Each object communicates with other as opposed to traditional view. Features : \u25cf In this bottom approach is followed. First concentrates on minute details like creating objects then concentrates on implementation or solving the problem. \u25cf Concentrate more on data and give less importance for implementation. \u25cf Objects communicate with each other The main advantage of object oriented programming language is works well for larger problems."
+    },
+    {
+        "number": 188,
+        "question": "List out benefits of object oriented programming language?",
+        "answer": "\u25cf Easy maintenance \u25cf Code reusability \u25cf Code extendability \u25cf Reliable"
+    },
+    {
+        "number": 189,
+        "question": "Differences between traditional programming language and object oriented",
+        "answer": "programming language? Traditional Programming language Object Oriented Programming Language A program is divided in to modules and procedures. A program is divided in to number of objects. Implementation is done through procedures. Implementation is done through interfaces. In traditional programming there is no In oops encapsulation is done by tightly coupling encapsulation all procedures access data. data and behaviour together in class. Suitable for small programs or problems Suitable for large programs and complex problems."
+    },
+    {
+        "number": 190,
+        "question": "Explain oops concepts in detail?",
+        "answer": "Object oriented programming should support these three features : \u25cf Inheritance \u25cf Encapsulation \u25cf Polymorphism"
+    },
+    {
+        "number": 191,
+        "question": "Explain what is encapsulation?",
+        "answer": "Encapsulation is the process of wrapping of code and behaviour in a single unit called class and preventing from misuse is called encapsulation. Encapsulation exposes only part of object which are safe to exposed and remaining part of object is kept secured. Encapsulation is supported through access control in java. There are four types of access control specifiers(public,private, protected, default) in java which supports encapsulation. For example tv manufacturers exposes only buttons not all the thousands of electronic components which it is made up of."
+    },
+    {
+        "number": 192,
+        "question": "What is inheritance?",
+        "answer": "Inheritance is one of the important feature of object oriented language. Inheriting is the process of acquiring features of others. For example a child acquires the features of their parents. In java inheritance is the process of inheriting member of existing classes by extending their functionality. The original class is called base class, parent class or super class. The new class derived from parent is called child class, sub class, and derived class. We use extends keyword in java to extend a class in java. All java classes extend java.lang.Object since object class is the super class for all classes in java. When we create a new class by using inheritance \u2018is-a\u2019 relationship is formed."
+    },
+    {
+        "number": 193,
+        "question": "Explain importance of inheritance in java?",
+        "answer": "Reusability :The major advantage of inheritance is code reuse. We can avoid duplicating code by using inheritance. We can place all common state and behaviour in that class , by extending that class we can Extendability : We can add new functionality to our application without touching the existing code. For example if we take Ms word we came across number of versions of msword such as word 2003,2007. Everytime they won\u2019t write new code they reuse the existing code and some more features."
+    },
+    {
+        "number": 194,
+        "question": "What is polymorphism in java?",
+        "answer": "Polymorphism is combination of two greek words which mean many forms. In polymorphism actual type of object involved in method call determines which method to call rather type of reference variable."
+    },
+    {
+        "number": 195,
+        "question": "What is covariant return?",
+        "answer": "In java 1.4 and earlier one method can override super class method if both methods have same signature and return types. From Java 1.5 , a method can override other method if argument types match exactly though return types are different.(Return type must be subtype of other method). Example : Class A { A doSomeThing() { return new A(); } } Example : Class B { B doSomeThing() { return new B(); } } From java 1.5 return type for doSomeThing() in Class B is valid . We get compile time error in 1.4 and earlier."
+    },
+    {
+        "number": 196,
+        "question": "What is collections framework?",
+        "answer": "A framework is set of classes and interfaces to build a functionality. Java collections framework provides set of interfaces and classes for storing and manipulating collections. Collection framework contains classes and interfaces in java.util package and java.util.concurrent packages. Advantages or benefits of Collections framework : \u25cf High performance \u25cf Using this framework we can create different types of collections \u25cf We can create our own collection and we can extend a collection. \u25cf Reduces programming effort. \u25cf Increases speed and quality : Collections framework provides high performance, implementations of useful data structures and algorithms."
+    },
+    {
+        "number": 197,
+        "question": "What is collection?",
+        "answer": "A collection is a container which holds group of objects. Collection provides a way to manage objects easily. Collections manages group of objects as single unit. Examples include list of strings, integers etc. Here are few basic operations we do on collections : \u25cf Adding objects to collection. \u25cf Removing or deleting objects from collection. \u25cf Retrieving object from collection. \u25cf Iterating collection."
+    },
+    {
+        "number": 198,
+        "question": "Difference between collection, Collection and Collections in java?",
+        "answer": "collection : represent group of objects where objects are stored. Collection : This is one of the core interface which provides basic functionality for collection. Collections : Collections contains some utility static methods that operate on collections."
+    },
+    {
+        "number": 199,
+        "question": "Explain about Collection interface in java?",
+        "answer": "Collection is the fundamental and root interface in Collections framework. Collection extends Iterable interface and inherits iterator method which returns Iterator object. Signature : public interface Collection<E> extends Iterable<E> { } Methods in Collection interface : boolean add(E e); Adds an element to the collection. Returns true if element is added. boolean remove(Object Removes an object from collection if that object is present in collection. Return o); true if matching object is removed from collection. boolean Adds all the elements specified in the collection to this collection.Returns true addAll(Collection<? if all elements are added. extends E> c); boolean Removes all the elements from this collection that are specified in other removeAll(Collection<?> collection.Returns true if all the elements are removed. c); int size(); Returns number of elements in collection. boolean isEmpty(); Checks whether collection contains elements or not. If no elements are present it returns false. boolean contains(Object Checks whether specified object is in collection or not. Return true if object is o); in collection. Iterator<E> iterator(); Used to iterator over collection. No guarantee on order of elements iterated. boolean Removes all the elements which are not in specified collection. Returns only retainAll(Collection<?> elements specified in collection removing other elements. c); Object[] toArray(); Returns an array of elements in collection."
+    },
+    {
+        "number": 200,
+        "question": "List the interfaces which extends collection interface?",
+        "answer": "\u25cf List \u25cf Set \u25cf Queue \u25cf Deque ( From Java 6)"
+    },
+    {
+        "number": 201,
+        "question": "Explain List interface?",
+        "answer": "List interface extends collection interface used to store sequence of elements in collection. We can even store duplicate elements in list. We can insert or access elements in list by using index as we do in arrays. List is an ordered collection. The main difference between List and non list interface are methods based on position. Some of the operations we can perform on List : \u25cf Adding an element at specified index. \u25cf Removing an element at specified index. \u25cf To get the index of element List contains some specific methods apart from Collection interface methods."
+    },
+    {
+        "number": 202,
+        "question": "Explain methods specific to List interface?",
+        "answer": "boolean addAll(int index, Collection<? extends E> This method inserts all the elements in specified c); collection to the list at specified position. E get(int index); This method returns an element at specified position in the list. E set(int index, E element); This method replaces the element at specified position in the list with the specified element. void add(int index, E element); This method inserts the specified element with the index specified. E remove(int index); This method removes the element at specified index and returns the element removed. int indexOf(Object o); indexOf() method returns the index of last occurrence of specified element. If there is no element in the list it removes the element. ListIterator<E> listIterator(); Returns a list iterator of elements in list. List<E> subList(int fromIndex, int toIndex); This method returns list of elements between indexes specified."
+    },
+    {
+        "number": 203,
+        "question": "List implementations of List Interface?",
+        "answer": "\u25cf ArrayList \u25cf Vector \u25cf LinkedList"
+    },
+    {
+        "number": 204,
+        "question": "Explain about ArrayList?",
+        "answer": "ArrayList is an ordered collection which extends AbstractList and implements List interface. We use ArrayList mainly when we need faster access and fast iteration of elements in list. We can insert nulls in to arraylist. Arraylist is nothing but a growable array. public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, java.io.Serializable{} From java 1.4 ArrayList implements RandomAccess interface which is a marker interface which supports fast and random access. Advantages : \u25cf Faster and easier access. \u25cf Used for Random access of elements. Drawbacks : \u25cf We cannot insert or delete elements from middle of list."
+    },
+    {
+        "number": 205,
+        "question": "Difference between Array and ArrayList?",
+        "answer": "Arrays are used to store primitives or objects of same type or variables that are subclasses of same type. ArrayList : It is an ordered collection which grows dynamically. In list we can insert nulls values and list allows duplicate elements. ARRAY ARRAY LIST \u25cf While creating array we have to know the 1) But it is not required to know size while size. creating ArrayList, because arraylist grows dynamically. \u25cf To put an element in to array we use the 2) We can add element to arraylist with following following syntax :String array[] = syntax :List<String> stringList = new newString[5];array[1] = \u201cjava\u201d;We must know ArrayList<String>();stringList.add(\u201cjava\u201d); specific location to insert an element in to array. If we try to put element in index which is out of range we get ArrayIndexOutOfBounds Exception \u25cf Arrays are static 3) ArrayList is dynamic \u25cf We can store objects and primitives 4) We can store only primitives prior to 1.5 . From 1.5 we can store even objects also. \u25cf We have to manually write logic for inserting 5) Just a method call would add or remove and removing elements. elements from list. \u25cf Arrays are faster 6) Arraylist is slower. \u25cf Arraylist is implemented using arrays."
+    },
+    {
+        "number": 206,
+        "question": "What is vector?",
+        "answer": "Vector is similar to arraylist used for random access. Vector is a dynamic array like arraylist. vector size increases or decreases when elements are added and removed . Vector is synchronized . vector and Hashtable are the only collections since 1.0. Rest of the collections are added from 2.0. public class Vector<E>extends AbstractList<E>implements List<E>, RandomAccess, Cloneable, java.io.Serializable"
+    },
+    {
+        "number": 207,
+        "question": "Difference between arraylist and vector?",
+        "answer": "Both ArrayList and vector grows dynamically. The differences between arraylist and vector are : \u25cf Arraylist is not synchronized and vector is synchronized. \u25cf Vector is legacy collection introduced in 1.0 and Arraylist introduced in java 2.0. Performance wise it is recommended to use arraylist rather than vector because by default vector is synchronized which reduces performance if only one thread accesses it."
+    },
+    {
+        "number": 208,
+        "question": "Define Linked List and its features with signature?",
+        "answer": "Linked list is used for storing a collection of objects that allows efficient addition and removal of elements in the middle of the collection. The main drawback with arrays is if we want to insert an element in the middle of the list we need to move each element to next position and insert the element. Similarly with remove if we want to remove an element we need to remove the element and move the list of elements. But with linked list we can insert and delete in the middle of the list efficiently by just updating the neighbouring node reference. Linked list class is in java.util package. Linked List class extends class extends AbstractSequentialList and I mplements List, Deque, Cloneable and Serializable. Signature :public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>, Deque<E>, Cloneable, java.io.Serializable { } Important methods specific to LinkedList class : \u25cf public E getFirst() : getFirst() will returns the first element in the list. \u25cf public E getLast() : getLast() returns the last element in the list. \u25cf public E removeFirst() : removeFirst() method removes the first element in the list. \u25cf public E removeLast() : removeLast() method removes the last element in the list. \u25cf public void addFirst(E e) Inserts the element at beginning of the list. \u25cf public void addLast(E e) : Inserts the element at end of the list."
+    },
+    {
+        "number": 209,
+        "question": "Define Iterator and methods in Iterator?",
+        "answer": "If we want to iterate through all the elements in collection we use Iterator. Iterator is a standard way to access elements one by one in collection. Iterator is an object associated with collection used to loop through the collection. Steps for accessing elements in Iterator : \u25cf Obtain Iterator object by calling iterator() method on collection. Ex : ArrayList <String> al=new ArrayList<String>(); Iterator itr=al.iterator(); \u25cf Call hasNext() method on iterator object in loop as long as hasNext() returns true. Ex : while(itr.hasNext()) { } \u25cf Get each element by calling next() inside the loop. while(itr.hasNext()) { String str=itr.next(); } Methods in iterator : Method Description boolean hasNext(); This method returns true if there is next element.hasNext() points to position before first lement.If there are any elements if will return true. E next(); Returns the next element in the iteration. . If there are no elements in the Iteration NoSuchElementException is thrown. next() will move the pointer to next position and returns the element. void remove(); Removes the element. Note : If we call next() on last element it will throw java.util.NoSuchElementException. So before calling next() first we should call hasNext() whether it has elements or not. If there is next element we can call next() so that we can avoid exception."
+    },
+    {
+        "number": 210,
+        "question": "In which order the Iterator iterates over collection?",
+        "answer": "The order in which Iterator will iterate the collection depends on the traversal order of collection. For example : for list traversal order will be sequential, and for set the order cannot be determined, and for sorted sorted set will sort the elements in sorted order. So it all depends on the collection in which order iterator iterates."
+    },
+    {
+        "number": 211,
+        "question": "Explain ListIterator and methods in ListIterator?",
+        "answer": "List Iterator is similar to Iterator but ListIterator is bidirectional. We can traverse through the collection in either forward or backward direction. List Iterator extends Iterator and all the methods in Iterator will be there in ListIterator too with some additional methods . List Iterator doesn\u2019t have current element .Position of List Iterator lies between two elements i.e previous element and next element. Features of ListIterator : \u25cf Traversal of List in either direction. \u25cf Modification of its elements. \u25cf Access to elements position. Signature : public interface ListIterator<E> extends Iterator<E> { } ListIterator methods : Method Description Void add(E obj) Inserts element in to the list infront of the element returned by call to next() and after the element returned by call to next(). boolean hasNext(); Returns true if there are more elements in the list instead of throwing exception if there are no elements. E next(); Returns the next element . NoSuchElementException is thrown if there is no next element. boolean Returns true if there are elements when iterating list in reverse direction. hasPrevious(); E previous(); Returns the previous element in the list. int nextIndex(); Returns the index of the element returned by next() method. If there are no elements it returns the size of the list. int Returns the index of the element returned by previous() method. If there are no previousIndex(); elements it returns the size of the list. Returns -1 if the iterator is at beginning of list. void remove(); Removes the element that was returned by calling next() or previous(). An Illegal state Exception will be thrown if remove() is called before next() or previous(). void set(E e); This method replaces an element in the list with the specified element."
+    },
+    {
+        "number": 212,
+        "question": "Explain about Sets?",
+        "answer": "A set is a collection which does not allow duplicates. Set internally implements equals() method which doesn\u2019t allow duplicates.Adding an duplicate element to a set would be ignored .Set interface is implemented in java.util.set package.Set interface does not have any additional methods . It has only collection methods. A set can contain atmost one null value. ArrayList is an ordered collection.In arraylists order remains same in which they are inserted. But coming to set it is an unordered collection. public interface Set<E> extends Collection<E> { } Important operations that can be performed on set : \u25cf Adding an element to set. \u25cf Removing an element from set. \u25cf Check if an element exist in set. \u25cf Iterating through set."
+    },
+    {
+        "number": 213,
+        "question": "Implementations of Set interface?",
+        "answer": "\u25cf HashSet \u25cf Linked HashSet \u25cf TreeSet"
+    },
+    {
+        "number": 214,
+        "question": "Explain HashSet and its features?",
+        "answer": "Hashset implements set interface and extends AbstractSet. Features of Hashset are : \u25cf It does not allow duplicates. \u25cf It does not gurantee ordering of elements. \u25cf It is unsorted and unordered set. \u25cf Performance wise it is recommended to use hashset when compared to other sets because it internally uses hashing mechanism. \u25cf Allows insertion of nulls. Note : For efficiency whenever objects are added to HashSet it need to implement the hashCode() method. public class HashSet<E> extends AbstractSet<E> implements Set<E>, Cloneable, java.io.Serializable { }"
+    },
+    {
+        "number": 215,
+        "question": "Explain Tree Set and its features?",
+        "answer": "TreeSet implements navigableSet interface and extends Abstract set.It creates collection that uses tree for storage. Features of Treeset are : \u25cf It does not allow duplicates. \u25cf When we retrieve the elements in treeset we will get elements in sorted order. public class TreeSet<E> extends AbstractSet<E> implements NavigableSet<E>, Cloneable, java.io.Serializable {"
+    },
+    {
+        "number": 216,
+        "question": "When do we use HashSet over TreeSet?",
+        "answer": "If we want to search for an element in collection and does not want any sorting order we go for HashSet."
+    },
+    {
+        "number": 217,
+        "question": "When do we use TreeSet over HashSet?",
+        "answer": "TreeSet is preferred \u25cf if elements are to be maintained in sorting order. \u25cf Fast insertion and retrieval of elements."
+    },
+    {
+        "number": 218,
+        "question": "What is Linked HashSet and its features?",
+        "answer": "LinkedHashSet extends HashSet and implements Set interface. public class LinkedHashSet<E> extends HashSet<E> implements Set<E>, Cloneable, java.io.Serializable { } Linked HashSet is similar to HashSet but in linked HashSet we maintain order but in HashSet we don\u2019t maintain order. Maintaining order means elements will be retrieved in order which they are inserted."
+    },
+    {
+        "number": 219,
+        "question": "Explain about Map interface in java?",
+        "answer": "A map is an association of key-value pairs. Both keys and values in map are objects. Features of map : \u25cf Maps cannot have duplicate keys but can have duplicate value objects."
+    },
+    {
+        "number": 220,
+        "question": "What is linked hashmap and its features?",
+        "answer": "LinkedHashMap extends HashMap and implements Map.lLinked hashmap gurantees order of elements . Elements are retrieved in same order they are inserted.Linked HashMap uses internally double linked lists to keep insertion order. The differences between Hashmap and linked hashmap is \u25cf LinkedHashMap maintains the insertion order while HashMap doesnot maintain order. \u25cf HashMap if faster for insertion and deletion of elements when compared to linked hashmap. Linked hashmap is preferred only for faster iteration of elements. public class LinkedHashMap<K,V> extends HashMap<K,V> implements Map<K,V> { }"
+    },
+    {
+        "number": 221,
+        "question": "What is SortedMap interface?",
+        "answer": "SortedMap extends Map interface.Sorted Map maintains sorted order of keys in a map. By default sorted map maintains natural ordering if we want custom order we can specify using comparator. public interface SortedMap<K,V> extends Map<K,V> { }"
+    },
+    {
+        "number": 222,
+        "question": "What is Hashtable and explain features of Hashtable?",
+        "answer": "Hashtable was available before collection framework. When collection framework was started Hashtable extends Dictionary class and Map interface. Hashtable offers a convenient way of storing key/ value pairs. Hashtable does not allow nulls either keys or values. Hashtable is synchronized."
+    },
+    {
+        "number": 223,
+        "question": "Difference between HashMap and Hashtable?",
+        "answer": "Difference HashMap Hashtable Synronization HashMap is not synchronized. Hashtable is synchronized. Nulls HashMap allows atmost one null key Hashtable does not allow null values. and any number of null values. Performance Since HashMap is not synchronized its Performance is slower when compared to performance is faster than Hashtable. HashMap. Introduction HashMap introduced starting from Hashtable is even before collection collection framework. framework."
+    },
+    {
+        "number": 224,
+        "question": "Difference between arraylist and linkedlist?",
+        "answer": "Difference Arraylist LinkedList Access Implements RandomAccess interface we It extends Abstract sequential List can search randomly all the elements interface which provides in the list. sequential access to elements. Searching and retrieval of Searching and retrieval of elements is Searching and retrieval of elements fast since arraylist provides random elements is slow because of access. sequential access to elements. Addition and removal of Adding and removal of elements in Adding and removal of elements random positions is slow.For example elements in random positions if we want to add element to middle of is fast because there is no need of the list we have to move the elements in resizing the array just by updating the list and then we need to insert the the node structures with new element. Similarly for removing the addresses. element we need to follow the same thing."
+    },
+    {
+        "number": 225,
+        "question": "Difference between Comparator and Comparable in java?",
+        "answer": "Sno Comparator Comparable \u25cf Defined in java.util package Defined in java.lang package. \u25cf Comparator interface is used when Comparable is used to compare itself with other we want to compare two instance. different instances \u25cf Comparator is used when we want Comparable is used for natural sorting of objects.Ex : custom sorting.Ex : If we take If we take employee class sorting by ename and age we employee class sorting by can say as custom sorting. employeeId is natural sorting. \u25cf Should override int compare(T o1, T Should override public int compareTo(T o) method o2) method which takes two which takes one instance. instances. \u25cf For sorting objects we use For sorting objects we use collections.sort(list); collections.sort(list,new Comparator);"
+    },
+    {
+        "number": 226,
+        "question": "What is concurrent hashmap and its features?",
+        "answer": "Concurrent HashMap is implemented in java.util.concurrent package. Concurrent HashMap extends Abstract Map and implements concurrent Map. Concurrent HashMap is used in multi threaded environment. ]It is similar to Hashtable and synchronized version of hashmap but with minor differences. Concurrent HashMap does not allow null keys and values."
+    },
+    {
+        "number": 227,
+        "question": "Difference between Concurrent HashMap and Hashtable and",
+        "answer": "collections.synchronizedHashMap? Locking Mechansim :ConcurrentHashMap uses completely different hashing mechanism called lock striping which offers better concurrency and scalability. The main advantage of this mechanism is better concurrency instead of synchronizing every method by using common lock which allows only one thread to access at a time, it allows better concurrency by allowing multiple threads to access. ConcurrentModificationException :ConcurrentHashMap provides iterators which doesnot throw concurrent modification exception which allows only one thread to access iterator, while synchronized map may throw concurrent modification exception."
+    },
+    {
+        "number": 228,
+        "question": "Explain copyOnWriteArrayList and when do we use copyOnWriteArrayList?",
+        "answer": "copyOnWriteArrayList is used in multithreaded environment. If we want to iterate over arraylist ,but the arraylist is updated by other threads to prevent concurrent modification exception we have two solutions : \u25cf First one is we need to synchronize the list manually by using collections.synchronized(list) and iterate over the list in synchronized block to avoid concurrent modification exception. \u25cf The second one is to use copyOnWriteArrayList which takes care of concurrency. The advantage of using copyOnWriteArrayList is no need to synchronize list explicitly. So when we use copyOnWriteArrayList when a thread modifies the list while the other thread was iterating it does not modify original list but creates a copy of list with modified contents so that the iterator won\u2019t know the modifications made to original list."
+    },
+    {
+        "number": 229,
+        "question": "Explain about fail fast iterators in java?",
+        "answer": "When iterator iterates over collection, collection should not be modified except by that iterator. Modification means collection cannot be modified by thread when other thread is iterating, if such modification happens a concurrent modification exception will be thrown.Such kind of iterators are fail fast iterators. Ex : ArrayList,HashSet,HashMap. Almost all the iterators implemented in collections framework are fail fast."
+    },
+    {
+        "number": 230,
+        "question": "Explain about fail safe iterators in java?",
+        "answer": "Fail safe iterators are iterators which does not throw concurrent modification exception, when one thread modifies collection and other thread in the process of iterating the collection. It does not throw concurrent modification exception because when other thread was iterating it does not modify original list but creates a copy of list with modified contents so that the iterator won\u2019t know the modifications made to original list. Ex : copyOnWriteArrayList"
+    },
+    {
+        "number": 231,
+        "question": "What is serialization in java?",
+        "answer": "Serialization is the process of converting an object in to bytes, so that it can be transmitted over the network,or stored in a flat file and can be recreated later. Serialized object is an object represented as sequence of bytes that includes objects data, object type, and the types of data stored in the object."
+    },
+    {
+        "number": 232,
+        "question": "What is the main purpose of serialization in java?",
+        "answer": "The main uses of serialization are : \u25cf Persistence: We can write data to a file or database and can be used later by deserializing it. \u25cf Communication : To pass an object over network by making remote procedure call. \u25cf Copying : We can create duplicates of original object by using byte array. \u25cf To distribute objects across different JVMs."
+    },
+    {
+        "number": 233,
+        "question": "What are alternatives to java serialization?",
+        "answer": "XML based data transfer JSON based data transfer. XML based data transfer : We can use JIBX or JAXB where we can marshall our object\u2019s data to xml and transfer data and then unmarshall and convert to object. JSON based transfer : We can use json to transfer data."
+    },
+    {
+        "number": 234,
+        "question": "Explain about serializable interface in java?",
+        "answer": "To implement serialization in java there is an interface defined in java.io package called serializable interface. Java.io.Serializable interface is an marker interface which doesnot contain any any methods. A class implements Serializable lets the JVM know that the instances of the class can be serialized. Syntax: public interface Serializable { }"
+    },
+    {
+        "number": 235,
+        "question": "How to make object serializable in java?",
+        "answer": "\u25cf Our class must implement serializable interface.If our object contains other objects those class must also implement serializable interface. \u25cf We use ObjectOutputStream which extends OutputStream used to write objects to a stream. \u25cf We use ObjectInputStream which extends InputStream used to read objects from stream"
+    },
+    {
+        "number": 236,
+        "question": "What is serial version UID and its importance in java?",
+        "answer": "Serial version unique identifier is a 64 bit long value .This 64 bit long value is a hash code of the class name,super interfaces and member. Suid is a unique id no two classes will have same suid. Whenever an object is serialized suid value will also serialize with it. When an object is read using ObjectInputStream, the suid is also read. If the loaded class suid does not match with suid read from object stream, readObject throws an InvalidClassException."
+    },
+    {
+        "number": 237,
+        "question": "What happens if we don\u2019t define serial version UID?",
+        "answer": "If we don\u2019t define serial version UID JVM will create one suid for us. But it is recommended to have suid rather than JVM creating because at run time JVM has to compute the hashcode of all the properties of class. This process makes serialization low. We can\u2019t serialize static fields one exception to this is suid where suid gets serialized along with the object. Ex :private static final long serialVersionUID = -5885568094444284875L;"
+    },
+    {
+        "number": 238,
+        "question": "Can we serialize static variables in java?",
+        "answer": "We can\u2019t serialize static variables in java. The reason being static variable are class variables that belongs to a class not to object, but serialization mechanism saves only the object state not the class state."
+    },
+    {
+        "number": 239,
+        "question": "When we serialize an object does the serialization mechanism saves its",
+        "answer": "references too? When we serialize an object even the object it refers must implement serializable then the reference objects also get serialized. If we don\u2019t make reference objects serializable then we get NotSerializableException."
+    },
+    {
+        "number": 240,
+        "question": "If we don\u2019t want some of the fields not to serialize How to do that?",
+        "answer": "If we don\u2019t want to serialize some fields during serialization we declare those variables as transient. During deserialization transient variables are initialized with default values for primitives and null for object references."
+    }
+]

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}StudyForge{% endblock %}</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="dashboard-body">
+    <!-- Glowing glass background design -->
+    <div class="background-glow">
+        <div class="glow-bubble bubble-1"></div>
+        <div class="glow-bubble bubble-2"></div>
+        <div class="glow-bubble bubble-3"></div>
+    </div>
+    
+    <div class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar glass-panel">
+            <div class="sidebar-header">
+                <span class="logo-icon">🛠️</span>
+                <span class="logo-text">Study<span>Forge</span></span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="{% if request.blueprint == 'main' and request.endpoint == 'main.dashboard' %}active{% endif %}">
+                        <a href="{{ url_for('main.dashboard') }}">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="{% if request.blueprint == 'study' %}active{% endif %}">
+                        <a href="{{ url_for('study.session') }}">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span>Study Engine</span>
+                        </a>
+                    </li>
+                    <li class="{% if request.blueprint == 'questions' %}active{% endif %}">
+                        <a href="{{ url_for('questions.index') }}">
+                            <i class="fa-solid fa-folder-open"></i>
+                            <span>My Decks</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="{{ url_for('auth.logout') }}" class="logout-link">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Log Out</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Panel Content -->
+        <main class="main-content">
+            <!-- Header bar with gamified metrics -->
+            <header class="main-header glass-panel">
+                <div class="header-welcome">
+                    <h2>Hello, <span>{{ current_user.username }}</span>!</h2>
+                </div>
+                
+                <div class="gamified-stats">
+                    <!-- XP Badge -->
+                    <div class="stat-badge xp-badge" title="XP: {{ current_user.xp }} (Level {{ current_user.level }})">
+                        <div class="badge-icon">⭐</div>
+                        <div class="badge-text">
+                            <span class="badge-label">LEVEL {{ current_user.level }}</span>
+                            <div class="level-progress-bar">
+                                <div class="level-progress-fill" style="width: {{ current_user.xp_in_level }}%"></div>
+                            </div>
+                            <span class="badge-val-sub">{{ current_user.xp_in_level }} / 100 XP</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Streak Badge -->
+                    <div class="stat-badge streak-badge" title="Current Streak">
+                        <div class="badge-icon">🔥</div>
+                        <div class="badge-text">
+                            <span class="badge-val">{{ current_user.streak_count }} Days</span>
+                            <span class="badge-label-sub">Streak</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Daily Goal Badge -->
+                    {% set today_count = namespace(value=0) %}
+                    <!-- We will set this dynamically, so let's default to calculations in views and inject or fetch -->
+                    {% block goal_stats %}
+                    <div class="stat-badge goal-badge" id="dailyGoalBadge">
+                        <div class="badge-icon">🎯</div>
+                        <div class="badge-text">
+                            <span class="badge-val" id="dailyGoalText">0 / {{ current_user.daily_goal }}</span>
+                            <span class="badge-label-sub">Daily Goal</span>
+                        </div>
+                        <button class="edit-goal-btn" onclick="openModal('goalModal')"><i class="fa-solid fa-pen-to-square"></i></button>
+                    </div>
+                    {% endblock %}
+                    
+                    <!-- Dark mode toggle -->
+                    <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                </div>
+            </header>
+            
+            <!-- Alerts / Toast Messages -->
+            <div class="alerts-container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                                <i class="fa-solid {% if category == 'danger' %}fa-circle-xmark{% elif category == 'success' %}fa-circle-check{% else %}fa-circle-info{% endif %}"></i>
+                                <span>{{ message }}</span>
+                                <button class="alert-close" onclick="this.parentElement.remove()">&times;</button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            
+            <!-- Page View Block -->
+            <div class="page-container">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+    </div>
+    
+    <!-- Daily Goal Modal -->
+    <div id="goalModal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h3>Customize Daily Study Goal</h3>
+                <button class="modal-close" onclick="closeModal('goalModal')">&times;</button>
+            </div>
+            <form action="{{ url_for('main.update_goal') }}" method="POST">
+                <div class="modal-body">
+                    <p>Set the number of cards you want to review each day to maintain your streak.</p>
+                    <div class="form-group goal-input-group">
+                        <input type="number" id="daily_goal" name="daily_goal" min="1" max="100" value="{{ current_user.daily_goal }}" required>
+                        <span class="goal-unit">Cards / Day</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('goalModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Goal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Bottom Tab Bar for Mobile View -->
+    <nav class="bottom-nav glass-panel">
+        <a href="{{ url_for('main.dashboard') }}" class="bottom-nav-item {% if request.blueprint == 'main' and request.endpoint == 'main.dashboard' %}active{% endif %}">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Dashboard</span>
+        </a>
+        <a href="{{ url_for('study.session') }}" class="bottom-nav-item {% if request.blueprint == 'study' %}active{% endif %}">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Study</span>
+        </a>
+        <a href="{{ url_for('questions.index') }}" class="bottom-nav-item {% if request.blueprint == 'questions' %}active{% endif %}">
+            <i class="fa-solid fa-folder-open"></i>
+            <span>Decks</span>
+        </a>
+        <a href="{{ url_for('auth.logout') }}" class="bottom-nav-item logout-item">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Logout</span>
+        </a>
+    </nav>
+    
+    <!-- Main Script Handles -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

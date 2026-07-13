@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}Study Session - StudyForge{% endblock %}
+
+{% block content %}
+<div class="study-session-container">
+    <!-- Session control panel -->
+    <div class="session-mode-control glass-panel">
+        <div class="mode-info">
+            <span class="mode-icon">🧠</span>
+            <div>
+                <h3>Study Session</h3>
+                <p id="modeDescription">Reviewing cards scheduled for spaced repetition.</p>
+            </div>
+        </div>
+        <div class="mode-toggle-group">
+            <button class="mode-toggle-btn active" id="btnModeDue" onclick="changeMode('due')">Due Cards</button>
+            <button class="mode-toggle-btn" id="btnModePractice" onclick="changeMode('practice')">Practice All</button>
+        </div>
+    </div>
+    
+    <!-- Active Quiz Card Box -->
+    <div class="quiz-card-box" id="quizCardBox">
+        <div class="session-progress">
+            <div class="progress-label">
+                <span id="currentCardIndex">Card 0 of 0</span>
+            </div>
+            <div class="session-progress-bar">
+                <div class="session-progress-fill" id="sessionProgressFill" style="width: 0%;"></div>
+            </div>
+        </div>
+        
+        <!-- 3D Card container -->
+        <div class="flashcard-container" onclick="flipCard()">
+            <div class="flashcard" id="flashcard">
+                <!-- Front Side (Question) -->
+                <div class="flashcard-face flashcard-front glass-panel">
+                    <div class="card-meta">
+                        <span class="meta-subject" id="cardSubject">Subject</span>
+                        <span class="meta-separator">&bull;</span>
+                        <span class="meta-topic" id="cardTopic">Topic</span>
+                    </div>
+                    <div class="card-body">
+                        <p id="cardQuestion">Question text goes here...</p>
+                    </div>
+                    <div class="card-instructions">
+                        <span>Click card to reveal answer</span>
+                    </div>
+                </div>
+                
+                <!-- Back Side (Answer) -->
+                <div class="flashcard-face flashcard-back glass-panel" onclick="event.stopPropagation()">
+                    <div class="card-meta">
+                        <span class="meta-subject" id="cardSubjectBack">Subject</span>
+                        <span class="meta-separator">&bull;</span>
+                        <span class="meta-topic" id="cardTopicBack">Topic</span>
+                    </div>
+                    <div class="card-body">
+                        <p id="cardAnswer">Answer text goes here...</p>
+                    </div>
+                    <div class="card-instructions">
+                        <span>Rate your recall:</span>
+                    </div>
+                    <!-- SM-2 Confidence Ratings -->
+                    <div class="rating-buttons">
+                        <button class="rate-btn forgot" onclick="submitRating('Forgot')">
+                            <span class="rate-emoji">❌</span>
+                            <span class="rate-label">Forgot</span>
+                        </button>
+                        <button class="rate-btn hard" onclick="submitRating('Hard')">
+                            <span class="rate-emoji">⏳</span>
+                            <span class="rate-label">Hard</span>
+                        </button>
+                        <button class="rate-btn medium" onclick="submitRating('Medium')">
+                            <span class="rate-emoji">⚖️</span>
+                            <span class="rate-label">Medium</span>
+                        </button>
+                        <button class="rate-btn easy" onclick="submitRating('Easy')">
+                            <span class="rate-emoji">🚀</span>
+                            <span class="rate-label">Easy</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- All Caught Up screen -->
+    <div class="empty-state glass-panel hidden" id="completedState">
+        <div class="achievement-celebration animate-bounce">🎉</div>
+        <h2>All Caught Up!</h2>
+        <p id="completionMessage">You've completed all scheduled reviews for today. Great job!</p>
+        
+        <div class="session-summary">
+            <div class="summary-stat glass-panel">
+                <span class="summary-val" id="summaryXP">0</span>
+                <span class="summary-label">XP Gained</span>
+            </div>
+            <div class="summary-stat glass-panel">
+                <span class="summary-val" id="summaryStreak">0</span>
+                <span class="summary-label">Active Streak</span>
+            </div>
+        </div>
+        
+        <div class="completion-actions">
+            <button class="btn btn-secondary" onclick="changeMode('practice')">
+                <i class="fa-solid fa-redo"></i> Practice Deck
+            </button>
+            <a href="{{ url_for('main.dashboard') }}" class="btn btn-primary">
+                Go to Dashboard <i class="fa-solid fa-house"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Achievement Unlock Celebration Banner -->
+<div id="achievementBanner" class="achievement-banner glass-panel hidden">
+    <div class="ach-banner-icon" id="achBannerIcon">🏆</div>
+    <div class="ach-banner-text">
+        <h4>ACHIEVEMENT UNLOCKED!</h4>
+        <p id="achBannerName">Achievement Name</p>
+        <span id="achBannerDesc">Achievement Description</span>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/study.js') }}"></script>
+{% endblock %}
